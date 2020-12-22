@@ -968,7 +968,8 @@ i915_perf_accumulate(struct gputop_client_context *ctx,
         switch (header->type) {
         case DRM_I915_PERF_RECORD_OA_BUFFER_LOST:
             gputop_cr_console_log("i915_oa: OA buffer error - all records lost");
-            break;
+            gputop_client_context_stop_sampling(ctx);
+            return;
         case DRM_I915_PERF_RECORD_OA_REPORT_LOST:
             if (ctx->warn_report_loss)
                 gputop_cr_console_log("i915_oa: OA report lost");
@@ -1168,6 +1169,8 @@ register_platform_metrics(struct gputop_client_context *ctx,
         { "cflgt3", gputop_oa_get_metrics_cflgt3 },
         { "cnl", gputop_oa_get_metrics_cnl },
         { "icl", gputop_oa_get_metrics_icl },
+        { "ehl", gputop_oa_get_metrics_lkf },
+        { "tgl", gputop_oa_get_metrics_tgl },
     };
 
     struct gputop_devinfo *devinfo = &ctx->devinfo;
@@ -1182,13 +1185,16 @@ register_platform_metrics(struct gputop_client_context *ctx,
     const Gputop__DevTopology *pb_topology = pb_devinfo->topology;
     struct gputop_devtopology *topology = &ctx->devinfo.topology;
 
+    memset(topology, 0, sizeof(*topology));
+
     topology->max_slices = pb_topology->max_slices;
     topology->max_subslices = pb_topology->max_subslices;
     topology->max_eus_per_subslice = pb_topology->max_eus_per_subslice;
     topology->n_threads_per_eu = pb_topology->n_threads_per_eu;
 
-    assert(pb_topology->slices_mask.len == 1);
-    topology->slices_mask[0] = pb_topology->slices_mask.data[0];
+    assert(pb_topology->slices_mask.len <= ARRAY_SIZE(topology->slices_mask));
+    for (uint32_t i = 0; i < pb_topology->slices_mask.len; i++)
+        topology->slices_mask[i] = pb_topology->slices_mask.data[i];
 
     assert(pb_topology->subslices_mask.len <= ARRAY_SIZE(topology->subslices_mask));
     memcpy(topology->subslices_mask, pb_topology->subslices_mask.data,
@@ -1485,8 +1491,10 @@ handle_protobuf_message(struct gputop_client_context *ctx,
         ctx->features = message;
         register_platform_metrics(ctx, message->features->devinfo);
         ctx->i915_perf_config.cpu_timestamps =
-            message->features->has_i915_oa_cpu_timestamps;
+            message->features->has_i915_oa_cpu_timestamps &&
+          message->features->has_i915_oa_gpu_timestamps;
         ctx->i915_perf_config.gpu_timestamps =
+          message->features->has_i915_oa_cpu_timestamps &&
             message->features->has_i915_oa_gpu_timestamps;
         message = NULL; /* Save that structure for internal use */
         break;

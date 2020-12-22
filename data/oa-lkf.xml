@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
-<metrics version="1572342629" merge_md5="">
+<metrics version="1572425295" merge_md5="">
   <set name="Render Metrics Basic Gen11"
        mdapi_supported_apis="OGL OCL IO BB"
        underscore_name="render_basic"
-       hw_config_guid="193093b2-da24-49bf-b407-442c213b71b4"
-       chipset="ICL"
+       hw_config_guid="807f52f4-e457-4da4-b2b6-9a7b6dc2b1ed"
+       chipset="LKF"
        symbol_name="RenderBasic"
        >
     <counter name="GPU Core Clocks"
@@ -298,7 +298,7 @@
              description="The total number of GPU memory bytes read from GTI."
              data_type="uint64"
              max_equation="$GpuCoreClocks 64 UMUL"
-             equation="64  B 1 READ B 3 READ UADD B 4 READ UADD B 5 READ UADD UMUL"
+             equation="64  B 5 READ B 4 READ UADD UMUL"
              underscore_name="gti_read_throughput"
              units="bytes"
              symbol_name="GtiReadThroughput"
@@ -518,7 +518,7 @@
              description="The total number of GPU memory bytes transferred between shaders and L3 caches w/o URB."
              data_type="uint64"
              max_equation="$GpuCoreClocks 64 UMUL $EuSubslicesTotalCount UMUL"
-             equation="$ShaderMemoryAccesses 64 UMUL"
+             equation="A 30 READ A 31 READ UADD A 32 READ UADD 64 UMUL"
              underscore_name="l3_shader_throughput"
              units="bytes"
              symbol_name="L3ShaderThroughput"
@@ -575,13 +575,13 @@
         <register type="NOA" address="0x00009888" value="0x142C0014" />
         <register type="NOA" address="0x00009888" value="0x14120700" />
         <register type="NOA" address="0x00009888" value="0x121500E0" />
-        <register type="NOA" address="0x00009888" value="0x1C1E000C" />
-        <register type="NOA" address="0x00009888" value="0x0E1F000C" />
-        <register type="NOA" address="0x00009888" value="0x1C200014" />
-        <register type="NOA" address="0x00009888" value="0x16212800" />
-        <register type="NOA" address="0x00009888" value="0x0E2C2041" />
+        <register type="NOA" address="0x00009888" value="0x1E1E0030" />
+        <register type="NOA" address="0x00009888" value="0x1A204000" />
+        <register type="NOA" address="0x00009888" value="0x1C200001" />
+        <register type="NOA" address="0x00009888" value="0x1E213000" />
+        <register type="NOA" address="0x00009888" value="0x0E2C1831" />
         <register type="NOA" address="0x00009888" value="0x102C0000" />
-        <register type="NOA" address="0x00009888" value="0x1A2C0000" />
+        <register type="NOA" address="0x00009888" value="0x182C0000" />
         <register type="NOA" address="0x00009888" value="0x10040140" />
         <register type="NOA" address="0x00009888" value="0x0E040005" />
         <register type="NOA" address="0x00009888" value="0x14050050" />
@@ -607,29 +607,28 @@
         <register type="NOA" address="0x00009888" value="0x1A5C01C0" />
         <register type="NOA" address="0x00009888" value="0x1C5C000A" />
         <register type="NOA" address="0x00009888" value="0x001C0097" />
-        <register type="NOA" address="0x00009888" value="0x061C9400" />
-        <register type="NOA" address="0x00009888" value="0x0A1C00A7" />
+        <register type="NOA" address="0x00009888" value="0x0A1CA700" />
         <register type="NOA" address="0x00009888" value="0x101C0000" />
-        <register type="NOA" address="0x00009888" value="0x081D8100" />
-        <register type="NOA" address="0x00009888" value="0x0A1D0004" />
-        <register type="NOA" address="0x00009888" value="0x085C9497" />
-        <register type="NOA" address="0x00009888" value="0x0A5CA700" />
+        <register type="NOA" address="0x00009888" value="0x081D0100" />
+        <register type="NOA" address="0x00009888" value="0x0A1D0008" />
+        <register type="NOA" address="0x00009888" value="0x085C0097" />
+        <register type="NOA" address="0x00009888" value="0x0A5C00A7" />
         <register type="NOA" address="0x00009888" value="0x105C0000" />
-        <register type="NOA" address="0x00009888" value="0x0A5D000B" />
+        <register type="NOA" address="0x00009888" value="0x0A5D0005" />
         <register type="NOA" address="0x00009888" value="0x181E8000" />
-        <register type="NOA" address="0x00009888" value="0x1E1EEF80" />
+        <register type="NOA" address="0x00009888" value="0x1E1EB300" />
         <register type="NOA" address="0x00009888" value="0x301F4000" />
-        <register type="NOA" address="0x00009888" value="0x501F2404" />
-        <register type="NOA" address="0x00009888" value="0x521F0092" />
+        <register type="NOA" address="0x00009888" value="0x501F2004" />
+        <register type="NOA" address="0x00009888" value="0x521F0090" />
         <register type="NOA" address="0x00009888" value="0x541F0024" />
         <register type="NOA" address="0x00009888" value="0x4E1F2000" />
-        <register type="NOA" address="0x00009888" value="0x3E1F0300" />
-        <register type="NOA" address="0x00009888" value="0x461F0303" />
-        <register type="NOA" address="0x00009888" value="0x481F0303" />
-        <register type="NOA" address="0x00009888" value="0x4A1F0003" />
-        <register type="NOA" address="0x00009888" value="0x181F0000" />
+        <register type="NOA" address="0x00009888" value="0x3E1F6100" />
+        <register type="NOA" address="0x00009888" value="0x461F6100" />
+        <register type="NOA" address="0x00009888" value="0x481F6100" />
+        <register type="NOA" address="0x00009888" value="0x4A1F0061" />
+        <register type="NOA" address="0x00009888" value="0x141F0000" />
         <register type="NOA" address="0x00009888" value="0x4C1F0000" />
-        <register type="NOA" address="0x00009888" value="0x421F4001" />
+        <register type="NOA" address="0x00009888" value="0x421F3060" />
     </register_config>
     <register_config type="OA">
         <register type="OA" address="0x00002740" value="0x00000000" />
@@ -651,8 +650,8 @@
   <set name="Compute Metrics Basic Gen11"
        mdapi_supported_apis="OGL OCL IO BB"
        underscore_name="compute_basic"
-       hw_config_guid="5c99b520-174d-4e94-a95e-5392e9b2a944"
-       chipset="ICL"
+       hw_config_guid="5706829a-b9f3-4d0f-aa88-420f452540bf"
+       chipset="LKF"
        symbol_name="ComputeBasic"
        >
     <counter name="GPU Core Clocks"
@@ -942,7 +941,7 @@
              description="The total number of GPU memory bytes read from GTI."
              data_type="uint64"
              max_equation="$GpuCoreClocks 64 UMUL"
-             equation="64  B 1 READ B 3 READ UADD B 6 READ UADD B 7 READ UADD UMUL"
+             equation="64  B 7 READ B 6 READ UADD UMUL"
              underscore_name="gti_read_throughput"
              units="bytes"
              symbol_name="GtiReadThroughput"
@@ -1118,7 +1117,7 @@
              description="The total number of GPU memory bytes transferred between shaders and L3 caches w/o URB."
              data_type="uint64"
              max_equation="$GpuCoreClocks 64 UMUL $EuSubslicesTotalCount UMUL"
-             equation="$ShaderMemoryAccesses 64 UMUL"
+             equation="A 30 READ A 31 READ UADD A 32 READ UADD 64 UMUL"
              underscore_name="l3_shader_throughput"
              units="bytes"
              symbol_name="L3ShaderThroughput"
@@ -1203,8 +1202,8 @@
         <register type="NOA" address="0x00009888" value="0x10230019" />
         <register type="NOA" address="0x00009888" value="0x12A30012" />
         <register type="NOA" address="0x00009888" value="0x10A30019" />
-        <register type="NOA" address="0x00009888" value="0x1A200400" />
-        <register type="NOA" address="0x00009888" value="0x1C200020" />
+        <register type="NOA" address="0x00009888" value="0x1A200080" />
+        <register type="NOA" address="0x00009888" value="0x1C200002" />
         <register type="NOA" address="0x00009888" value="0x04208000" />
         <register type="NOA" address="0x00009888" value="0x08208000" />
         <register type="NOA" address="0x00009888" value="0x0C208000" />
@@ -1214,8 +1213,7 @@
         <register type="NOA" address="0x00009888" value="0x04230032" />
         <register type="NOA" address="0x00009888" value="0x06230033" />
         <register type="NOA" address="0x00009888" value="0x00230000" />
-        <register type="NOA" address="0x00009888" value="0x1AA01000" />
-        <register type="NOA" address="0x00009888" value="0x1CA00008" />
+        <register type="NOA" address="0x00009888" value="0x1AA08200" />
         <register type="NOA" address="0x00009888" value="0x02A08000" />
         <register type="NOA" address="0x00009888" value="0x06A08000" />
         <register type="NOA" address="0x00009888" value="0x0AA08000" />
@@ -1283,30 +1281,29 @@
         <register type="NOA" address="0x00009888" value="0x1A5C01C0" />
         <register type="NOA" address="0x00009888" value="0x1C5C000A" />
         <register type="NOA" address="0x00009888" value="0x001C0097" />
-        <register type="NOA" address="0x00009888" value="0x061C9400" />
-        <register type="NOA" address="0x00009888" value="0x0C1C00A7" />
+        <register type="NOA" address="0x00009888" value="0x0C1CA700" />
         <register type="NOA" address="0x00009888" value="0x101C0000" />
-        <register type="NOA" address="0x00009888" value="0x081D8100" />
-        <register type="NOA" address="0x00009888" value="0x0A1D0010" />
-        <register type="NOA" address="0x00009888" value="0x085C9497" />
-        <register type="NOA" address="0x00009888" value="0x0C5CA700" />
+        <register type="NOA" address="0x00009888" value="0x081D0100" />
+        <register type="NOA" address="0x00009888" value="0x0A1D0020" />
+        <register type="NOA" address="0x00009888" value="0x085C0097" />
+        <register type="NOA" address="0x00009888" value="0x0C5C00A7" />
         <register type="NOA" address="0x00009888" value="0x105C0000" />
-        <register type="NOA" address="0x00009888" value="0x0A5D0023" />
+        <register type="NOA" address="0x00009888" value="0x0A5D0011" />
         <register type="NOA" address="0x00009888" value="0x181E8000" />
-        <register type="NOA" address="0x00009888" value="0x1E1E0F80" />
-        <register type="NOA" address="0x00009888" value="0x201E000E" />
+        <register type="NOA" address="0x00009888" value="0x1E1E0300" />
+        <register type="NOA" address="0x00009888" value="0x201E000B" />
         <register type="NOA" address="0x00009888" value="0x301F4000" />
-        <register type="NOA" address="0x00009888" value="0x501F2524" />
-        <register type="NOA" address="0x00009888" value="0x521F2522" />
+        <register type="NOA" address="0x00009888" value="0x501F2124" />
+        <register type="NOA" address="0x00009888" value="0x521F2520" />
         <register type="NOA" address="0x00009888" value="0x541F0024" />
         <register type="NOA" address="0x00009888" value="0x3A1F8000" />
         <register type="NOA" address="0x00009888" value="0x4E1F2430" />
         <register type="NOA" address="0x00009888" value="0x3E1F0300" />
-        <register type="NOA" address="0x00009888" value="0x461F0303" />
-        <register type="NOA" address="0x00009888" value="0x481F3003" />
+        <register type="NOA" address="0x00009888" value="0x461F0300" />
+        <register type="NOA" address="0x00009888" value="0x481F3000" />
         <register type="NOA" address="0x00009888" value="0x4A1F0300" />
         <register type="NOA" address="0x00009888" value="0x4C1F0003" />
-        <register type="NOA" address="0x00009888" value="0x181F0000" />
+        <register type="NOA" address="0x00009888" value="0x141F0000" />
         <register type="NOA" address="0x00009888" value="0x401F3000" />
         <register type="NOA" address="0x00009888" value="0x421F3000" />
         <register type="NOA" address="0x00009888" value="0x441F3000" />
@@ -1329,8 +1326,8 @@
   <set name="ComputeExtended Gen11"
        mdapi_supported_apis="OGL OGL4 OCL MEDIA IO BB"
        underscore_name="compute_extended"
-       hw_config_guid="43eb7fc1-dc5e-45e2-a90a-0053f5397271"
-       chipset="ICL"
+       hw_config_guid="2ab52087-3700-4db4-8dda-f73b77edfd93"
+       chipset="LKF"
        symbol_name="ComputeExtended"
        >
     <counter name="UntypedWritesPerCacheLine"
@@ -1641,35 +1638,30 @@
         <register type="NOA" address="0x00000D04" value="0x00000200" />
         <register type="NOA" address="0x00009840" value="0x00000000" />
         <register type="NOA" address="0x00009884" value="0x00000000" />
-        <register type="NOA" address="0x00009888" value="0x1222000B" />
-        <register type="NOA" address="0x00009888" value="0x16220009" />
+        <register type="NOA" address="0x00009888" value="0x14210160" />
+        <register type="NOA" address="0x00009888" value="0x18210120" />
         <register type="NOA" address="0x00009888" value="0x12230019" />
         <register type="NOA" address="0x00009888" value="0x10230012" />
         <register type="NOA" address="0x00009888" value="0x101E8000" />
-        <register type="NOA" address="0x00009888" value="0x1A1EF800" />
-        <register type="NOA" address="0x00009888" value="0x1C1E0007" />
-        <register type="NOA" address="0x00009888" value="0x001F8000" />
-        <register type="NOA" address="0x00009888" value="0x0C1FF800" />
-        <register type="NOA" address="0x00009888" value="0x0E1F0007" />
+        <register type="NOA" address="0x00009888" value="0x1C1EE000" />
+        <register type="NOA" address="0x00009888" value="0x1E1E001F" />
         <register type="NOA" address="0x00009888" value="0x00204000" />
         <register type="NOA" address="0x00009888" value="0x0E204000" />
-        <register type="NOA" address="0x00009888" value="0x1A202AA0" />
-        <register type="NOA" address="0x00009888" value="0x1C200005" />
+        <register type="NOA" address="0x00009888" value="0x18204000" />
+        <register type="NOA" address="0x00009888" value="0x1A205550" />
         <register type="NOA" address="0x00009888" value="0x04208000" />
         <register type="NOA" address="0x00009888" value="0x06208000" />
         <register type="NOA" address="0x00009888" value="0x08208000" />
         <register type="NOA" address="0x00009888" value="0x0A208000" />
         <register type="NOA" address="0x00009888" value="0x0C208000" />
-        <register type="NOA" address="0x00009888" value="0x00214000" />
-        <register type="NOA" address="0x00009888" value="0x0E214000" />
-        <register type="NOA" address="0x00009888" value="0x14214000" />
-        <register type="NOA" address="0x00009888" value="0x16210555" />
-        <register type="NOA" address="0x00009888" value="0x00220011" />
-        <register type="NOA" address="0x00009888" value="0x06220900" />
-        <register type="NOA" address="0x00009888" value="0x08220A13" />
-        <register type="NOA" address="0x00009888" value="0x0A220B15" />
-        <register type="NOA" address="0x00009888" value="0x0C222317" />
-        <register type="NOA" address="0x00009888" value="0x0E220043" />
+        <register type="NOA" address="0x00009888" value="0x00210041" />
+        <register type="NOA" address="0x00009888" value="0x06214200" />
+        <register type="NOA" address="0x00009888" value="0x08214443" />
+        <register type="NOA" address="0x00009888" value="0x0A214645" />
+        <register type="NOA" address="0x00009888" value="0x0C217647" />
+        <register type="NOA" address="0x00009888" value="0x0E210073" />
+        <register type="NOA" address="0x00009888" value="0x1E210000" />
+        <register type="NOA" address="0x00009888" value="0x10210000" />
         <register type="NOA" address="0x00009888" value="0x02231AB4" />
         <register type="NOA" address="0x00009888" value="0x04231DBA" />
         <register type="NOA" address="0x00009888" value="0x06230039" />
@@ -1710,29 +1702,33 @@
         <register type="NOA" address="0x00009888" value="0x0A19A000" />
         <register type="NOA" address="0x00009888" value="0x0C19A000" />
         <register type="NOA" address="0x00009884" value="0x00000003" />
-        <register type="NOA" address="0x00009888" value="0x16136860" />
-        <register type="NOA" address="0x00009888" value="0x24000004" />
-        <register type="NOA" address="0x00009888" value="0x20000040" />
-        <register type="NOA" address="0x00009888" value="0x0E132980" />
-        <register type="NOA" address="0x00009888" value="0x00132D80" />
+        <register type="NOA" address="0x00009888" value="0x18130343" />
+        <register type="NOA" address="0x00009888" value="0x22000008" />
+        <register type="NOA" address="0x00009888" value="0x12008000" />
+        <register type="NOA" address="0x00009888" value="0x0E137300" />
+        <register type="NOA" address="0x00009888" value="0x00137B00" />
         <register type="NOA" address="0x00009888" value="0x10130000" />
-        <register type="NOA" address="0x00009888" value="0x1A130000" />
-        <register type="NOA" address="0x00009888" value="0x02130000" />
+        <register type="NOA" address="0x00009888" value="0x1E130000" />
+        <register type="NOA" address="0x00009888" value="0x1C130000" />
+        <register type="NOA" address="0x00009888" value="0x0E168000" />
+        <register type="NOA" address="0x00009888" value="0x00168000" />
+        <register type="NOA" address="0x00009888" value="0x1A1A0010" />
+        <register type="NOA" address="0x00009888" value="0x021A4000" />
         <register type="NOA" address="0x00009888" value="0x301F8000" />
         <register type="NOA" address="0x00009888" value="0x501F4924" />
         <register type="NOA" address="0x00009888" value="0x521F4924" />
         <register type="NOA" address="0x00009888" value="0x541F000C" />
         <register type="NOA" address="0x00009888" value="0x3A1F2000" />
-        <register type="NOA" address="0x00009888" value="0x4E1F2413" />
+        <register type="NOA" address="0x00009888" value="0x4E1F2441" />
         <register type="NOA" address="0x00009888" value="0x3E1F0000" />
         <register type="NOA" address="0x00009888" value="0x461F0000" />
         <register type="NOA" address="0x00009888" value="0x481F0000" />
         <register type="NOA" address="0x00009888" value="0x4A1F0000" />
         <register type="NOA" address="0x00009888" value="0x4C1F0000" />
-        <register type="NOA" address="0x00009888" value="0x181F0000" />
-        <register type="NOA" address="0x00009888" value="0x401F3013" />
-        <register type="NOA" address="0x00009888" value="0x421F3030" />
-        <register type="NOA" address="0x00009888" value="0x441F3030" />
+        <register type="NOA" address="0x00009888" value="0x141F0000" />
+        <register type="NOA" address="0x00009888" value="0x401F1041" />
+        <register type="NOA" address="0x00009888" value="0x421F1010" />
+        <register type="NOA" address="0x00009888" value="0x441F1010" />
     </register_config>
     <register_config type="OA">
         <register type="OA" address="0x00002740" value="0x00000000" />
@@ -1765,8 +1761,8 @@
   <set name="Compute Metrics L3 Cache Gen11"
        mdapi_supported_apis="OGL OCL IO BB"
        underscore_name="compute_l3_cache"
-       hw_config_guid="05d5e01f-0800-4975-b36b-7b169cad3fab"
-       chipset="ICL"
+       hw_config_guid="498aa71d-ae5c-4523-a246-33fb2769a386"
+       chipset="LKF"
        symbol_name="ComputeL3Cache"
        >
     <counter name="GPU Core Clocks"
@@ -2084,6 +2080,19 @@
              mdapi_hw_unit_type="gpu"
              mdapi_group="EU Array/Barrier"
              />
+    <counter name="L3 Misses"
+             description="The total number of L3 misses."
+             data_type="uint64"
+             equation="2 B 5 READ B 4 READ UADD UMUL"
+             underscore_name="l3_misses"
+             units="messages"
+             symbol_name="L3Misses"
+             semantic_type="event"
+             mdapi_supported_apis=""
+             mdapi_usage_flags="Tier3 Frame Batch Draw"
+             mdapi_hw_unit_type="gpu"
+             mdapi_group="L3/TAG"
+             />
     <counter name="EU FPU0 Move Instruction"
              description="The percentage of time in which execution units were actively processing move instructions on FPU0."
              data_type="float"
@@ -2299,6 +2308,20 @@
              mdapi_hw_unit_type="gpu"
              mdapi_group="3D Pipe/Rasterizer"
              />
+    <counter name="GTI L3 Throughput"
+             description="The total number of GPU memory bytes transferred between L3 caches and GTI."
+             data_type="uint64"
+             max_equation="$GpuCoreClocks 64 UMUL"
+             equation="$L3Misses 64 UMUL"
+             underscore_name="gti_l3_throughput"
+             units="bytes"
+             symbol_name="GtiL3Throughput"
+             semantic_type="throughput"
+             mdapi_supported_apis=""
+             mdapi_usage_flags="Tier2 Frame Batch Draw"
+             mdapi_group="GTI/L3"
+             mdapi_hw_unit_type="gpu"
+             />
     <counter name="DS Threads Dispatched"
              description="The total number of domain shader hardware threads dispatched."
              data_type="uint64"
@@ -2437,7 +2460,7 @@
              description="The total number of GPU memory bytes transferred between shaders and L3 caches w/o URB."
              data_type="uint64"
              max_equation="$GpuCoreClocks 64 UMUL $EuSubslicesTotalCount UMUL"
-             equation="$ShaderMemoryAccesses 64 UMUL"
+             equation="A 30 READ A 31 READ UADD A 32 READ UADD 64 UMUL"
              underscore_name="l3_shader_throughput"
              units="bytes"
              symbol_name="L3ShaderThroughput"
@@ -2556,21 +2579,30 @@
         <register type="NOA" address="0x00009888" value="0x08150000" />
         <register type="NOA" address="0x00009888" value="0x0A150000" />
         <register type="NOA" address="0x00009884" value="0x00000003" />
+        <register type="NOA" address="0x00009888" value="0x0A1473A0" />
         <register type="NOA" address="0x00009888" value="0x1217241C" />
-        <register type="NOA" address="0x00009888" value="0x22000050" />
-        <register type="NOA" address="0x00009888" value="0x18133C00" />
+        <register type="NOA" address="0x00009888" value="0x2000F000" />
+        <register type="NOA" address="0x00009888" value="0x1C134000" />
+        <register type="NOA" address="0x00009888" value="0x1E130015" />
+        <register type="NOA" address="0x00009888" value="0x061434A0" />
+        <register type="NOA" address="0x00009888" value="0x0E140000" />
+        <register type="NOA" address="0x00009888" value="0x0C143000" />
+        <register type="NOA" address="0x00009888" value="0x0816C000" />
+        <register type="NOA" address="0x00009888" value="0x0A16C000" />
         <register type="NOA" address="0x00009888" value="0x081710B0" />
-        <register type="NOA" address="0x00009888" value="0x10170000" />
+        <register type="NOA" address="0x00009888" value="0x00170000" />
+        <register type="NOA" address="0x00009888" value="0x161A2000" />
+        <register type="NOA" address="0x00009888" value="0x181A1500" />
         <register type="NOA" address="0x00009888" value="0x501F1124" />
-        <register type="NOA" address="0x00009888" value="0x521F4801" />
+        <register type="NOA" address="0x00009888" value="0x521F4849" />
         <register type="NOA" address="0x00009888" value="0x541F0024" />
         <register type="NOA" address="0x00009888" value="0x3A1F8000" />
         <register type="NOA" address="0x00009888" value="0x4E1F2400" />
-        <register type="NOA" address="0x00009888" value="0x461F3100" />
-        <register type="NOA" address="0x00009888" value="0x481F0031" />
-        <register type="NOA" address="0x00009888" value="0x4A1F0000" />
+        <register type="NOA" address="0x00009888" value="0x461F0100" />
+        <register type="NOA" address="0x00009888" value="0x481F1101" />
+        <register type="NOA" address="0x00009888" value="0x4A1F0011" />
         <register type="NOA" address="0x00009888" value="0x4C1F0030" />
-        <register type="NOA" address="0x00009888" value="0x181F0000" />
+        <register type="NOA" address="0x00009888" value="0x141F0000" />
         <register type="NOA" address="0x00009888" value="0x301F0000" />
         <register type="NOA" address="0x00009888" value="0x401F0000" />
         <register type="NOA" address="0x00009888" value="0x421F3030" />
@@ -2597,8 +2629,8 @@
   <set name="Render Metrics for 3D Pipeline Profile Gen11"
        mdapi_supported_apis="OGL OCL IO BB"
        underscore_name="render_pipe_profile"
-       hw_config_guid="03c7a167-2abc-4ba6-878a-f1d80082abca"
-       chipset="ICL"
+       hw_config_guid="045dbb74-1e1a-499c-9a50-bac498e34699"
+       chipset="LKF"
        symbol_name="RenderPipeProfile"
        >
     <counter name="GPU Core Clocks"
@@ -3141,7 +3173,7 @@
              description="The total number of GPU memory bytes transferred between shaders and L3 caches w/o URB."
              data_type="uint64"
              max_equation="$GpuCoreClocks 64 UMUL $EuSubslicesTotalCount UMUL"
-             equation="$ShaderMemoryAccesses 64 UMUL"
+             equation="A 30 READ A 31 READ UADD A 32 READ UADD 64 UMUL"
              underscore_name="l3_shader_throughput"
              units="bytes"
              symbol_name="L3ShaderThroughput"
@@ -3209,13 +3241,12 @@
         <register type="NOA" address="0x00000D04" value="0x00000200" />
         <register type="NOA" address="0x00009840" value="0x00000000" />
         <register type="NOA" address="0x00009884" value="0x00000000" />
-        <register type="NOA" address="0x00009888" value="0x001F001E" />
+        <register type="NOA" address="0x00009888" value="0x101E001E" />
         <register type="NOA" address="0x00009888" value="0x10160000" />
         <register type="NOA" address="0x00009888" value="0x1017001F" />
-        <register type="NOA" address="0x00009888" value="0x0A1F0005" />
-        <register type="NOA" address="0x00009888" value="0x0E1F0000" />
-        <register type="NOA" address="0x00009888" value="0x0C1F0000" />
-        <register type="NOA" address="0x00009888" value="0x1A200800" />
+        <register type="NOA" address="0x00009888" value="0x0A1E0500" />
+        <register type="NOA" address="0x00009888" value="0x1E1E0000" />
+        <register type="NOA" address="0x00009888" value="0x1A200100" />
         <register type="NOA" address="0x00009888" value="0x10040015" />
         <register type="NOA" address="0x00009888" value="0x0E054000" />
         <register type="NOA" address="0x00009888" value="0x14050005" />
@@ -3230,83 +3261,70 @@
         <register type="NOA" address="0x00009888" value="0x12195000" />
         <register type="NOA" address="0x00009888" value="0x14190001" />
         <register type="NOA" address="0x00009884" value="0x00000003" />
-        <register type="NOA" address="0x00009888" value="0x12010000" />
-        <register type="NOA" address="0x00009888" value="0x100B7C00" />
-        <register type="NOA" address="0x00009888" value="0x100F0019" />
-        <register type="NOA" address="0x00009888" value="0x10107C00" />
-        <register type="NOA" address="0x00009888" value="0x16100000" />
-        <register type="NOA" address="0x00009888" value="0x00110000" />
-        <register type="NOA" address="0x00009888" value="0x120703C0" />
-        <register type="NOA" address="0x00009888" value="0x10090000" />
-        <register type="NOA" address="0x00009888" value="0x06010080" />
-        <register type="NOA" address="0x00009888" value="0x0E014180" />
-        <register type="NOA" address="0x00009888" value="0x10010000" />
-        <register type="NOA" address="0x00009888" value="0x00014000" />
-        <register type="NOA" address="0x00009888" value="0x060B0015" />
-        <register type="NOA" address="0x00009888" value="0x080B8000" />
-        <register type="NOA" address="0x00009888" value="0x0A0B2000" />
-        <register type="NOA" address="0x00009888" value="0x020BA000" />
-        <register type="NOA" address="0x00009888" value="0x040BA000" />
-        <register type="NOA" address="0x00009888" value="0x0E0E0A02" />
-        <register type="NOA" address="0x00009888" value="0x0C0EA800" />
-        <register type="NOA" address="0x00009888" value="0x020F0002" />
-        <register type="NOA" address="0x00009888" value="0x180F0800" />
-        <register type="NOA" address="0x00009888" value="0x040F0000" />
-        <register type="NOA" address="0x00009888" value="0x060F8000" />
-        <register type="NOA" address="0x00009888" value="0x0A100017" />
-        <register type="NOA" address="0x00009888" value="0x04107113" />
-        <register type="NOA" address="0x00009888" value="0x18100020" />
-        <register type="NOA" address="0x00009888" value="0x06104000" />
-        <register type="NOA" address="0x00009888" value="0x08100000" />
-        <register type="NOA" address="0x00009888" value="0x08110C40" />
-        <register type="NOA" address="0x00009888" value="0x02110C80" />
-        <register type="NOA" address="0x00009888" value="0x00024000" />
-        <register type="NOA" address="0x00009888" value="0x06028000" />
-        <register type="NOA" address="0x00009888" value="0x0E02C000" />
-        <register type="NOA" address="0x00009888" value="0x00039000" />
-        <register type="NOA" address="0x00009888" value="0x06036000" />
-        <register type="NOA" address="0x00009888" value="0x0803A000" />
-        <register type="NOA" address="0x00009888" value="0x0A032000" />
-        <register type="NOA" address="0x00009888" value="0x0E035000" />
-        <register type="NOA" address="0x00009888" value="0x0203A000" />
-        <register type="NOA" address="0x00009888" value="0x0403A000" />
-        <register type="NOA" address="0x00009888" value="0x00044000" />
-        <register type="NOA" address="0x00009888" value="0x0E044000" />
-        <register type="NOA" address="0x00009888" value="0x10068000" />
-        <register type="NOA" address="0x00009888" value="0x12068000" />
+        <register type="NOA" address="0x00009888" value="0x100A0019" />
+        <register type="NOA" address="0x00009888" value="0x140A001F" />
+        <register type="NOA" address="0x00009888" value="0x180B0000" />
+        <register type="NOA" address="0x00009888" value="0x160C0000" />
+        <register type="NOA" address="0x00009888" value="0x1C020000" />
+        <register type="NOA" address="0x00009888" value="0x1806801F" />
+        <register type="NOA" address="0x00009888" value="0x1007001E" />
+        <register type="NOA" address="0x00009888" value="0x12080000" />
+        <register type="NOA" address="0x00009888" value="0x0A0A0047" />
+        <register type="NOA" address="0x00009888" value="0x020A0002" />
+        <register type="NOA" address="0x00009888" value="0x040A0043" />
+        <register type="NOA" address="0x00009888" value="0x200A0000" />
+        <register type="NOA" address="0x00009888" value="0x1E0A0000" />
+        <register type="NOA" address="0x00009888" value="0x180A0000" />
+        <register type="NOA" address="0x00009888" value="0x1A0A8000" />
+        <register type="NOA" address="0x00009888" value="0x080B3100" />
+        <register type="NOA" address="0x00009888" value="0x020B3200" />
+        <register type="NOA" address="0x00009888" value="0x100B0000" />
+        <register type="NOA" address="0x00009888" value="0x040C2900" />
+        <register type="NOA" address="0x00009888" value="0x000C0000" />
+        <register type="NOA" address="0x00009888" value="0x100200B1" />
+        <register type="NOA" address="0x00009888" value="0x020200B3" />
+        <register type="NOA" address="0x00009888" value="0x08020000" />
+        <register type="NOA" address="0x00009888" value="0x00020000" />
+        <register type="NOA" address="0x00009888" value="0x00034000" />
+        <register type="NOA" address="0x00009888" value="0x08038000" />
+        <register type="NOA" address="0x00009888" value="0x0E034000" />
+        <register type="NOA" address="0x00009888" value="0x02038000" />
+        <register type="NOA" address="0x00009888" value="0x1C04FFB6" />
+        <register type="NOA" address="0x00009888" value="0x1E04E039" />
+        <register type="NOA" address="0x00009888" value="0x0C059000" />
+        <register type="NOA" address="0x00009888" value="0x10050042" />
+        <register type="NOA" address="0x00009888" value="0x06060095" />
+        <register type="NOA" address="0x00009888" value="0x1E060084" />
+        <register type="NOA" address="0x00009888" value="0x1C068000" />
         <register type="NOA" address="0x00009888" value="0x14068000" />
-        <register type="NOA" address="0x00009888" value="0x02068000" />
-        <register type="NOA" address="0x00009888" value="0x04068000" />
-        <register type="NOA" address="0x00009888" value="0x06068000" />
-        <register type="NOA" address="0x00009888" value="0x08068000" />
-        <register type="NOA" address="0x00009888" value="0x0A068000" />
-        <register type="NOA" address="0x00009888" value="0x0C068000" />
-        <register type="NOA" address="0x00009888" value="0x00070032" />
-        <register type="NOA" address="0x00009888" value="0x0E070033" />
-        <register type="NOA" address="0x00009888" value="0x04070000" />
-        <register type="NOA" address="0x00009888" value="0x08098011" />
-        <register type="NOA" address="0x00009888" value="0x00090980" />
-        <register type="NOA" address="0x00009888" value="0x18090A00" />
-        <register type="NOA" address="0x00009888" value="0x02090000" />
-        <register type="NOA" address="0x00009888" value="0x04098000" />
-        <register type="NOA" address="0x00009888" value="0x06098000" />
-        <register type="NOA" address="0x00009888" value="0x0A098000" />
-        <register type="NOA" address="0x00009888" value="0x0C098000" />
+        <register type="NOA" address="0x00009888" value="0x1A068000" />
+        <register type="NOA" address="0x00009888" value="0x00070022" />
+        <register type="NOA" address="0x00009888" value="0x0E070023" />
+        <register type="NOA" address="0x00009888" value="0x08078000" />
+        <register type="NOA" address="0x00009888" value="0x02078000" />
+        <register type="NOA" address="0x00009888" value="0x06080100" />
+        <register type="NOA" address="0x00009888" value="0x0E080300" />
+        <register type="NOA" address="0x00009888" value="0x1C080004" />
+        <register type="NOA" address="0x00009888" value="0x1A082000" />
+        <register type="NOA" address="0x00009888" value="0x14088000" />
+        <register type="NOA" address="0x00009888" value="0x18088000" />
+        <register type="NOA" address="0x00009888" value="0x1C090800" />
+        <register type="NOA" address="0x00009888" value="0x16098000" />
         <register type="NOA" address="0x00009888" value="0x301F6000" />
         <register type="NOA" address="0x00009888" value="0x501F36DB" />
         <register type="NOA" address="0x00009888" value="0x521F491B" />
         <register type="NOA" address="0x00009888" value="0x541F001B" />
         <register type="NOA" address="0x00009888" value="0x3A1F6000" />
         <register type="NOA" address="0x00009888" value="0x4E1F1B41" />
-        <register type="NOA" address="0x00009888" value="0x3E1F2100" />
-        <register type="NOA" address="0x00009888" value="0x461F4141" />
-        <register type="NOA" address="0x00009888" value="0x481F1160" />
+        <register type="NOA" address="0x00009888" value="0x3E1F3100" />
+        <register type="NOA" address="0x00009888" value="0x461F5141" />
+        <register type="NOA" address="0x00009888" value="0x481F3111" />
         <register type="NOA" address="0x00009888" value="0x4A1F1000" />
-        <register type="NOA" address="0x00009888" value="0x4C1F2120" />
-        <register type="NOA" address="0x00009888" value="0x181F0000" />
-        <register type="NOA" address="0x00009888" value="0x401F0141" />
-        <register type="NOA" address="0x00009888" value="0x421F1160" />
-        <register type="NOA" address="0x00009888" value="0x441F3111" />
+        <register type="NOA" address="0x00009888" value="0x4C1F3120" />
+        <register type="NOA" address="0x00009888" value="0x141F0000" />
+        <register type="NOA" address="0x00009888" value="0x401F3151" />
+        <register type="NOA" address="0x00009888" value="0x421F3111" />
+        <register type="NOA" address="0x00009888" value="0x441F5121" />
     </register_config>
     <register_config type="OA">
         <register type="OA" address="0x00002740" value="0x00000000" />
@@ -3323,8 +3341,8 @@
   <set name="Metric set HDCAndSF"
        mdapi_supported_apis="OGL OCL IO BB"
        underscore_name="hdc_and_sf"
-       hw_config_guid="c5cbc488-6569-41dd-9128-42bf6f0d317c"
-       chipset="ICL"
+       hw_config_guid="63af815c-30f9-4dd5-81fa-351ad6b69b4b"
+       chipset="LKF"
        symbol_name="HDCAndSF"
        >
     <counter name="GPU Core Clocks"
@@ -3803,7 +3821,7 @@
              description="The total number of GPU memory bytes transferred between shaders and L3 caches w/o URB."
              data_type="uint64"
              max_equation="$GpuCoreClocks 64 UMUL $EuSubslicesTotalCount UMUL"
-             equation="$ShaderMemoryAccesses 64 UMUL"
+             equation="A 30 READ A 31 READ UADD A 32 READ UADD 64 UMUL"
              underscore_name="l3_shader_throughput"
              units="bytes"
              symbol_name="L3ShaderThroughput"
@@ -3894,11 +3912,11 @@
         <register type="NOA" address="0x00009888" value="0x12E3000A" />
         <register type="NOA" address="0x00009888" value="0x10E30009" />
         <register type="NOA" address="0x00009888" value="0x10150019" />
-        <register type="NOA" address="0x00009888" value="0x1C20000A" />
+        <register type="NOA" address="0x00009888" value="0x1A20A000" />
         <register type="NOA" address="0x00009888" value="0x0C231900" />
         <register type="NOA" address="0x00009888" value="0x0E23003C" />
         <register type="NOA" address="0x00009888" value="0x00230000" />
-        <register type="NOA" address="0x00009888" value="0x1C600020" />
+        <register type="NOA" address="0x00009888" value="0x1C600002" />
         <register type="NOA" address="0x00009888" value="0x02608000" />
         <register type="NOA" address="0x00009888" value="0x0E631900" />
         <register type="NOA" address="0x00009888" value="0x00631E00" />
@@ -3949,7 +3967,7 @@
         <register type="NOA" address="0x00009888" value="0x0A1DA000" />
         <register type="NOA" address="0x00009884" value="0x00000003" />
         <register type="NOA" address="0x00009888" value="0x1C1F3061" />
-        <register type="NOA" address="0x00009888" value="0x181F0000" />
+        <register type="NOA" address="0x00009888" value="0x141F0000" />
         <register type="NOA" address="0x00009888" value="0x301F8000" />
         <register type="NOA" address="0x00009888" value="0x521F4000" />
         <register type="NOA" address="0x00009888" value="0x541F0024" />
@@ -3983,8 +4001,8 @@
   <set name="Metric set RasterizerAndPixelBackend"
        mdapi_supported_apis="OGL OCL IO BB"
        underscore_name="rasterizer_and_pixel_backend"
-       hw_config_guid="0316ce4f-e03f-4738-8262-13528fce8eea"
-       chipset="ICL"
+       hw_config_guid="20df0e83-535f-457f-a08b-76aee88c1e0e"
+       chipset="LKF"
        symbol_name="RasterizerAndPixelBackend"
        >
     <counter name="GPU Core Clocks"
@@ -4535,7 +4553,7 @@
              description="The total number of GPU memory bytes transferred between shaders and L3 caches w/o URB."
              data_type="uint64"
              max_equation="$GpuCoreClocks 64 UMUL $EuSubslicesTotalCount UMUL"
-             equation="$ShaderMemoryAccesses 64 UMUL"
+             equation="A 30 READ A 31 READ UADD A 32 READ UADD 64 UMUL"
              underscore_name="l3_shader_throughput"
              units="bytes"
              symbol_name="L3ShaderThroughput"
@@ -4589,10 +4607,10 @@
         <register type="NOA" address="0x00000D04" value="0x00000200" />
         <register type="NOA" address="0x00009840" value="0x00000000" />
         <register type="NOA" address="0x00009884" value="0x00000000" />
-        <register type="NOA" address="0x00009888" value="0x140A001F" />
-        <register type="NOA" address="0x00009888" value="0x040C5000" />
-        <register type="NOA" address="0x00009888" value="0x140F001F" />
-        <register type="NOA" address="0x00009888" value="0x04115017" />
+        <register type="NOA" address="0x00009888" value="0x120A03E0" />
+        <register type="NOA" address="0x00009888" value="0x140C0500" />
+        <register type="NOA" address="0x00009888" value="0x120F03E0" />
+        <register type="NOA" address="0x00009888" value="0x14110500" />
         <register type="NOA" address="0x00009888" value="0x10136000" />
         <register type="NOA" address="0x00009888" value="0x1213001C" />
         <register type="NOA" address="0x00009888" value="0x16140000" />
@@ -4608,24 +4626,21 @@
         <register type="NOA" address="0x00009888" value="0x08051000" />
         <register type="NOA" address="0x00009888" value="0x2406DF00" />
         <register type="NOA" address="0x00009888" value="0x26060007" />
-        <register type="NOA" address="0x00009888" value="0x00084000" />
         <register type="NOA" address="0x00009888" value="0x02084000" />
-        <register type="NOA" address="0x00009888" value="0x04094000" />
+        <register type="NOA" address="0x00009888" value="0x04098000" />
         <register type="NOA" address="0x00009888" value="0x06094000" />
-        <register type="NOA" address="0x00009888" value="0x000A3080" />
-        <register type="NOA" address="0x00009888" value="0x160A0000" />
-        <register type="NOA" address="0x00009888" value="0x080A0000" />
-        <register type="NOA" address="0x00009888" value="0x0A0A8000" />
-        <register type="NOA" address="0x00009888" value="0x020C05C0" />
+        <register type="NOA" address="0x00009888" value="0x000A0C40" />
+        <register type="NOA" address="0x00009888" value="0x0C0A0000" />
+        <register type="NOA" address="0x00009888" value="0x040A0000" />
+        <register type="NOA" address="0x00009888" value="0x020C0B80" />
         <register type="NOA" address="0x00009888" value="0x080C0000" />
-        <register type="NOA" address="0x00009888" value="0x020D1000" />
         <register type="NOA" address="0x00009888" value="0x040D1000" />
-        <register type="NOA" address="0x00009888" value="0x060E1000" />
+        <register type="NOA" address="0x00009888" value="0x060E2000" />
         <register type="NOA" address="0x00009888" value="0x080E1000" />
-        <register type="NOA" address="0x00009888" value="0x020F0061" />
-        <register type="NOA" address="0x00009888" value="0x160F0000" />
-        <register type="NOA" address="0x00009888" value="0x0A0F0000" />
-        <register type="NOA" address="0x00009888" value="0x0C0F4000" />
+        <register type="NOA" address="0x00009888" value="0x020F0031" />
+        <register type="NOA" address="0x00009888" value="0x0C0F0000" />
+        <register type="NOA" address="0x00009888" value="0x040F0000" />
+        <register type="NOA" address="0x00009888" value="0x04110017" />
         <register type="NOA" address="0x00009888" value="0x08110000" />
         <register type="NOA" address="0x00009888" value="0x18120C00" />
         <register type="NOA" address="0x00009888" value="0x02128000" />
@@ -4658,18 +4673,18 @@
         <register type="NOA" address="0x00009884" value="0x00000003" />
         <register type="NOA" address="0x00009888" value="0x1C1F3000" />
         <register type="NOA" address="0x00009888" value="0x1A1F0061" />
-        <register type="NOA" address="0x00009888" value="0x181F0000" />
+        <register type="NOA" address="0x00009888" value="0x141F0000" />
         <register type="NOA" address="0x00009888" value="0x301F8000" />
         <register type="NOA" address="0x00009888" value="0x501F4904" />
         <register type="NOA" address="0x00009888" value="0x521F0024" />
         <register type="NOA" address="0x00009888" value="0x3A1F8000" />
         <register type="NOA" address="0x00009888" value="0x4E1F2400" />
-        <register type="NOA" address="0x00009888" value="0x3E1F6000" />
-        <register type="NOA" address="0x00009888" value="0x461F5050" />
-        <register type="NOA" address="0x00009888" value="0x481F1040" />
+        <register type="NOA" address="0x00009888" value="0x3E1F5000" />
+        <register type="NOA" address="0x00009888" value="0x461F4040" />
+        <register type="NOA" address="0x00009888" value="0x481F0030" />
         <register type="NOA" address="0x00009888" value="0x401F4010" />
         <register type="NOA" address="0x00009888" value="0x421F3000" />
-        <register type="NOA" address="0x00009888" value="0x441F5033" />
+        <register type="NOA" address="0x00009888" value="0x441F4023" />
     </register_config>
     <register_config type="OA">
         <register type="OA" address="0x00002740" value="0x00000000" />
@@ -4696,8 +4711,8 @@
   <set name="Metric set L3_1"
        mdapi_supported_apis="OGL OCL IO BB"
        underscore_name="l3_1"
-       hw_config_guid="21d69ec3-91e1-48a8-acd6-c0c4ec6e819a"
-       chipset="ICL"
+       hw_config_guid="c7d3dc5c-975d-4d3a-a4c8-86fb0085743b"
+       chipset="LKF"
        symbol_name="L3_1"
        >
     <counter name="GPU Core Clocks"
@@ -5254,7 +5269,7 @@
              description="The total number of GPU memory bytes transferred between shaders and L3 caches w/o URB."
              data_type="uint64"
              max_equation="$GpuCoreClocks 64 UMUL $EuSubslicesTotalCount UMUL"
-             equation="$ShaderMemoryAccesses 64 UMUL"
+             equation="A 30 READ A 31 READ UADD A 32 READ UADD 64 UMUL"
              underscore_name="l3_shader_throughput"
              units="bytes"
              symbol_name="L3ShaderThroughput"
@@ -5316,26 +5331,26 @@
         <register type="NOA" address="0x00009888" value="0x16740000" />
         <register type="NOA" address="0x00009888" value="0x16B40000" />
         <register type="NOA" address="0x00009888" value="0x16F40000" />
-        <register type="NOA" address="0x00009888" value="0x07340037" />
-        <register type="NOA" address="0x00009888" value="0x21340000" />
-        <register type="NOA" address="0x00009888" value="0x09740037" />
-        <register type="NOA" address="0x00009888" value="0x21740000" />
-        <register type="NOA" address="0x00009888" value="0x0BB40037" />
-        <register type="NOA" address="0x00009888" value="0x21B40000" />
-        <register type="NOA" address="0x00009888" value="0x0DF40037" />
-        <register type="NOA" address="0x00009888" value="0x21F40000" />
+        <register type="NOA" address="0x00009888" value="0x07340017" />
+        <register type="NOA" address="0x00009888" value="0x27340000" />
+        <register type="NOA" address="0x00009888" value="0x09740017" />
+        <register type="NOA" address="0x00009888" value="0x27740000" />
+        <register type="NOA" address="0x00009888" value="0x0BB40017" />
+        <register type="NOA" address="0x00009888" value="0x27B40000" />
+        <register type="NOA" address="0x00009888" value="0x0DF40017" />
+        <register type="NOA" address="0x00009888" value="0x27F40000" />
         <register type="NOA" address="0x00009888" value="0x0E0000A7" />
         <register type="NOA" address="0x00009888" value="0x08012000" />
         <register type="NOA" address="0x00009888" value="0x0A034000" />
         <register type="NOA" address="0x00009888" value="0x0C038000" />
-        <register type="NOA" address="0x00009888" value="0x1C340037" />
-        <register type="NOA" address="0x00009888" value="0x20340000" />
-        <register type="NOA" address="0x00009888" value="0x1E740037" />
-        <register type="NOA" address="0x00009888" value="0x20740000" />
-        <register type="NOA" address="0x00009888" value="0x02B40037" />
-        <register type="NOA" address="0x00009888" value="0x20B40000" />
-        <register type="NOA" address="0x00009888" value="0x04F40037" />
-        <register type="NOA" address="0x00009888" value="0x20F40000" />
+        <register type="NOA" address="0x00009888" value="0x1C340017" />
+        <register type="NOA" address="0x00009888" value="0x26340000" />
+        <register type="NOA" address="0x00009888" value="0x1E740017" />
+        <register type="NOA" address="0x00009888" value="0x26740000" />
+        <register type="NOA" address="0x00009888" value="0x02B40017" />
+        <register type="NOA" address="0x00009888" value="0x26B40000" />
+        <register type="NOA" address="0x00009888" value="0x04F40017" />
+        <register type="NOA" address="0x00009888" value="0x26F40000" />
         <register type="NOA" address="0x00009888" value="0x10040200" />
         <register type="NOA" address="0x00009888" value="0x0E040055" />
         <register type="NOA" address="0x00009888" value="0x14050070" />
@@ -5363,7 +5378,7 @@
         <register type="NOA" address="0x00009884" value="0x00000003" />
         <register type="NOA" address="0x00009888" value="0x1C1F3000" />
         <register type="NOA" address="0x00009888" value="0x2A1F0061" />
-        <register type="NOA" address="0x00009888" value="0x181F0000" />
+        <register type="NOA" address="0x00009888" value="0x141F0000" />
         <register type="NOA" address="0x00009888" value="0x521F0000" />
         <register type="NOA" address="0x00009888" value="0x541F0024" />
         <register type="NOA" address="0x00009888" value="0x3A1F8000" />
@@ -5394,8 +5409,8 @@
   <set name="Gen11 L2Bank0 stalled metric set"
        mdapi_supported_apis="OGL OGL4 OCL MEDIA IO BB"
        underscore_name="l3_2"
-       hw_config_guid="e60e9155-6830-4aec-baf2-1c3c15a73869"
-       chipset="ICL"
+       hw_config_guid="04003388-30ef-45d6-ae89-86f71ee596f4"
+       chipset="LKF"
        symbol_name="L3_2"
        >
     <counter name="GPU Core Clocks"
@@ -5816,7 +5831,7 @@
         <register type="NOA" address="0x00009888" value="0x481F0000" />
         <register type="NOA" address="0x00009888" value="0x4A1F0000" />
         <register type="NOA" address="0x00009888" value="0x4C1F0000" />
-        <register type="NOA" address="0x00009888" value="0x181F0000" />
+        <register type="NOA" address="0x00009888" value="0x141F0000" />
         <register type="NOA" address="0x00009888" value="0x4E1F0000" />
     </register_config>
     <register_config type="OA">
@@ -5847,8 +5862,8 @@
   <set name="Gen11 L2Bank1 stalled metric set"
        mdapi_supported_apis="OGL OGL4 OCL MEDIA IO BB"
        underscore_name="l3_3"
-       hw_config_guid="47c364d5-1799-4d17-9447-add9358c6451"
-       chipset="ICL"
+       hw_config_guid="12f706a4-3761-4448-83dc-63495da010ff"
+       chipset="LKF"
        symbol_name="L3_3"
        >
     <counter name="GPU Core Clocks"
@@ -6269,7 +6284,7 @@
         <register type="NOA" address="0x00009888" value="0x481F0000" />
         <register type="NOA" address="0x00009888" value="0x4A1F0000" />
         <register type="NOA" address="0x00009888" value="0x4C1F0000" />
-        <register type="NOA" address="0x00009888" value="0x181F0000" />
+        <register type="NOA" address="0x00009888" value="0x141F0000" />
         <register type="NOA" address="0x00009888" value="0x4E1F0000" />
     </register_config>
     <register_config type="OA">
@@ -6300,8 +6315,8 @@
   <set name="Gen11 L2Bank4 stalled metric set"
        mdapi_supported_apis="OGL OGL4 OCL MEDIA IO BB"
        underscore_name="l3_4"
-       hw_config_guid="e5ab5c08-3130-4469-8eaf-b23d3dc817d4"
-       chipset="ICL"
+       hw_config_guid="b03ae6f7-fdc0-4879-9e65-5b221ac9625f"
+       chipset="LKF"
        symbol_name="L3_4"
        >
     <counter name="GPU Core Clocks"
@@ -6751,7 +6766,7 @@
         <register type="NOA" address="0x00009888" value="0x481F0000" />
         <register type="NOA" address="0x00009888" value="0x4A1F0000" />
         <register type="NOA" address="0x00009888" value="0x4C1F0000" />
-        <register type="NOA" address="0x00009888" value="0x181F0000" />
+        <register type="NOA" address="0x00009888" value="0x141F0000" />
         <register type="NOA" address="0x00009888" value="0x4E1F0000" />
     </register_config>
     <register_config type="OA">
@@ -6782,8 +6797,8 @@
   <set name="Gen11 L2Bank5 stalled metric set"
        mdapi_supported_apis="OGL OGL4 OCL MEDIA IO BB"
        underscore_name="l3_5"
-       hw_config_guid="6cdf23c1-f725-414c-959a-c90fa5571b1f"
-       chipset="ICL"
+       hw_config_guid="cdec4315-3c8d-416f-b3ae-33f7590e1439"
+       chipset="LKF"
        symbol_name="L3_5"
        >
     <counter name="GPU Core Clocks"
@@ -7233,7 +7248,7 @@
         <register type="NOA" address="0x00009888" value="0x481F0000" />
         <register type="NOA" address="0x00009888" value="0x4A1F0000" />
         <register type="NOA" address="0x00009888" value="0x4C1F0000" />
-        <register type="NOA" address="0x00009888" value="0x181F0000" />
+        <register type="NOA" address="0x00009888" value="0x141F0000" />
         <register type="NOA" address="0x00009888" value="0x4E1F0000" />
     </register_config>
     <register_config type="OA">
@@ -7264,8 +7279,8 @@
   <set name="Metric set Sampler 1"
        mdapi_supported_apis="OGL OCL IO BB"
        underscore_name="sampler_1"
-       hw_config_guid="51a2eb6d-9fad-4489-8f22-ab845fe7882a"
-       chipset="ICL"
+       hw_config_guid="377c06c4-5f41-465a-bf2e-60d95200ba94"
+       chipset="LKF"
        symbol_name="Sampler_1"
        >
     <counter name="GPU Core Clocks"
@@ -7808,7 +7823,7 @@
              description="The total number of GPU memory bytes transferred between shaders and L3 caches w/o URB."
              data_type="uint64"
              max_equation="$GpuCoreClocks 64 UMUL $EuSubslicesTotalCount UMUL"
-             equation="$ShaderMemoryAccesses 64 UMUL"
+             equation="A 30 READ A 31 READ UADD A 32 READ UADD 64 UMUL"
              underscore_name="l3_shader_throughput"
              units="bytes"
              symbol_name="L3ShaderThroughput"
@@ -7871,90 +7886,82 @@
         <register type="NOA" address="0x00009888" value="0x14EA0165" />
         <register type="NOA" address="0x00009888" value="0x14EF0165" />
         <register type="NOA" address="0x00009888" value="0x161E8000" />
-        <register type="NOA" address="0x00009888" value="0x181EC000" />
-        <register type="NOA" address="0x00009888" value="0x1A1E0400" />
-        <register type="NOA" address="0x00009888" value="0x061F8000" />
-        <register type="NOA" address="0x00009888" value="0x081F8000" />
-        <register type="NOA" address="0x00009888" value="0x0A1F8000" />
-        <register type="NOA" address="0x00009888" value="0x0C1F0400" />
+        <register type="NOA" address="0x00009888" value="0x181E8000" />
+        <register type="NOA" address="0x00009888" value="0x1C1E1800" />
         <register type="NOA" address="0x00009888" value="0x06204000" />
         <register type="NOA" address="0x00009888" value="0x08204000" />
         <register type="NOA" address="0x00009888" value="0x0A204000" />
         <register type="NOA" address="0x00009888" value="0x0C204000" />
-        <register type="NOA" address="0x00009888" value="0x06218000" />
-        <register type="NOA" address="0x00009888" value="0x08218000" />
-        <register type="NOA" address="0x00009888" value="0x0A218000" />
-        <register type="NOA" address="0x00009888" value="0x0C218000" />
+        <register type="NOA" address="0x00009888" value="0x16218000" />
+        <register type="NOA" address="0x00009888" value="0x18218000" />
+        <register type="NOA" address="0x00009888" value="0x1E210018" />
         <register type="NOA" address="0x00009888" value="0x042A1800" />
         <register type="NOA" address="0x00009888" value="0x062AC038" />
         <register type="NOA" address="0x00009888" value="0x102A0000" />
         <register type="NOA" address="0x00009888" value="0x082AC000" />
         <register type="NOA" address="0x00009888" value="0x0A2A0000" />
         <register type="NOA" address="0x00009888" value="0x0C2A0000" />
-        <register type="NOA" address="0x00009888" value="0x0A2C8000" />
-        <register type="NOA" address="0x00009888" value="0x0C2C8000" />
-        <register type="NOA" address="0x00009888" value="0x0E2C8000" />
-        <register type="NOA" address="0x00009888" value="0x182C0002" />
+        <register type="NOA" address="0x00009888" value="0x062C4000" />
+        <register type="NOA" address="0x00009888" value="0x082C4000" />
+        <register type="NOA" address="0x00009888" value="0x0A2C4000" />
+        <register type="NOA" address="0x00009888" value="0x0C2C4000" />
         <register type="NOA" address="0x00009888" value="0x022F2000" />
         <register type="NOA" address="0x00009888" value="0x042F0048" />
         <register type="NOA" address="0x00009888" value="0x102F0000" />
-        <register type="NOA" address="0x00009888" value="0x1C5E000C" />
+        <register type="NOA" address="0x00009888" value="0x062F0000" />
+        <register type="NOA" address="0x00009888" value="0x082F0000" />
+        <register type="NOA" address="0x00009888" value="0x1E5E0030" />
         <register type="NOA" address="0x00009888" value="0x125E8000" />
         <register type="NOA" address="0x00009888" value="0x145E8000" />
-        <register type="NOA" address="0x00009888" value="0x0E5F000C" />
-        <register type="NOA" address="0x00009888" value="0x025F8000" />
-        <register type="NOA" address="0x00009888" value="0x045F8000" />
-        <register type="NOA" address="0x00009888" value="0x1C600014" />
+        <register type="NOA" address="0x00009888" value="0x1A604000" />
+        <register type="NOA" address="0x00009888" value="0x1C600001" />
         <register type="NOA" address="0x00009888" value="0x02604000" />
         <register type="NOA" address="0x00009888" value="0x04604000" />
-        <register type="NOA" address="0x00009888" value="0x16612800" />
-        <register type="NOA" address="0x00009888" value="0x02618000" />
-        <register type="NOA" address="0x00009888" value="0x04618000" />
+        <register type="NOA" address="0x00009888" value="0x1E613000" />
+        <register type="NOA" address="0x00009888" value="0x12618000" />
+        <register type="NOA" address="0x00009888" value="0x14618000" />
         <register type="NOA" address="0x00009888" value="0x006A1800" />
         <register type="NOA" address="0x00009888" value="0x026A0038" />
         <register type="NOA" address="0x00009888" value="0x106A0000" />
         <register type="NOA" address="0x00009888" value="0x1A6A00F0" />
         <register type="NOA" address="0x00009888" value="0x046A0000" />
-        <register type="NOA" address="0x00009888" value="0x1A6C000A" />
-        <register type="NOA" address="0x00009888" value="0x066C8000" />
-        <register type="NOA" address="0x00009888" value="0x086C8000" />
+        <register type="NOA" address="0x00009888" value="0x186C5000" />
+        <register type="NOA" address="0x00009888" value="0x026C4000" />
+        <register type="NOA" address="0x00009888" value="0x046C4000" />
         <register type="NOA" address="0x00009888" value="0x0E6F2440" />
         <register type="NOA" address="0x00009888" value="0x106F0000" />
-        <register type="NOA" address="0x00009888" value="0x1A9EC000" />
-        <register type="NOA" address="0x00009888" value="0x1C9E0003" />
-        <register type="NOA" address="0x00009888" value="0x0C9FC000" />
-        <register type="NOA" address="0x00009888" value="0x0E9F0003" />
-        <register type="NOA" address="0x00009888" value="0x1AA02A00" />
-        <register type="NOA" address="0x00009888" value="0x1CA00001" />
-        <register type="NOA" address="0x00009888" value="0x16A102A8" />
+        <register type="NOA" address="0x00009888" value="0x1A6F0000" />
+        <register type="NOA" address="0x00009888" value="0x1E9E000F" />
+        <register type="NOA" address="0x00009888" value="0x1AA01540" />
+        <register type="NOA" address="0x00009888" value="0x1EA10F00" />
         <register type="NOA" address="0x00009888" value="0x0CAA1C30" />
         <register type="NOA" address="0x00009888" value="0x10AA0000" />
         <register type="NOA" address="0x00009888" value="0x18AAF000" />
         <register type="NOA" address="0x00009888" value="0x1AAA0000" />
-        <register type="NOA" address="0x00009888" value="0x18ACAA00" />
+        <register type="NOA" address="0x00009888" value="0x18AC0550" />
         <register type="NOA" address="0x00009888" value="0x0AAF2440" />
         <register type="NOA" address="0x00009888" value="0x10AF0000" />
+        <register type="NOA" address="0x00009888" value="0x1AAF0000" />
         <register type="NOA" address="0x00009888" value="0x10DE8000" />
-        <register type="NOA" address="0x00009888" value="0x1ADE3800" />
-        <register type="NOA" address="0x00009888" value="0x00DF8000" />
-        <register type="NOA" address="0x00009888" value="0x0CDF3800" />
+        <register type="NOA" address="0x00009888" value="0x1CDEE000" />
         <register type="NOA" address="0x00009888" value="0x00E04000" />
         <register type="NOA" address="0x00009888" value="0x0EE04000" />
-        <register type="NOA" address="0x00009888" value="0x1AE000A0" />
-        <register type="NOA" address="0x00009888" value="0x00E18000" />
-        <register type="NOA" address="0x00009888" value="0x0EE18000" />
-        <register type="NOA" address="0x00009888" value="0x14E18000" />
-        <register type="NOA" address="0x00009888" value="0x16E10002" />
+        <register type="NOA" address="0x00009888" value="0x18E04000" />
+        <register type="NOA" address="0x00009888" value="0x1AE00010" />
+        <register type="NOA" address="0x00009888" value="0x10E18000" />
+        <register type="NOA" address="0x00009888" value="0x1EE100E0" />
         <register type="NOA" address="0x00009888" value="0x08EA1C30" />
         <register type="NOA" address="0x00009888" value="0x10EA0000" />
         <register type="NOA" address="0x00009888" value="0x00EAC000" />
         <register type="NOA" address="0x00009888" value="0x0EEAC000" />
         <register type="NOA" address="0x00009888" value="0x18EA0000" />
-        <register type="NOA" address="0x00009888" value="0x04EC8000" />
-        <register type="NOA" address="0x00009888" value="0x18EC00A8" />
+        <register type="NOA" address="0x00009888" value="0x00EC4000" />
+        <register type="NOA" address="0x00009888" value="0x0EEC4000" />
+        <register type="NOA" address="0x00009888" value="0x18EC0005" />
         <register type="NOA" address="0x00009888" value="0x00EF0040" />
         <register type="NOA" address="0x00009888" value="0x06EF2400" />
         <register type="NOA" address="0x00009888" value="0x10EF0000" />
+        <register type="NOA" address="0x00009888" value="0x0EEF0000" />
         <register type="NOA" address="0x00009888" value="0x0C045400" />
         <register type="NOA" address="0x00009888" value="0x0E045555" />
         <register type="NOA" address="0x00009888" value="0x10040155" />
@@ -8023,7 +8030,7 @@
         <register type="NOA" address="0x00009888" value="0x481F0040" />
         <register type="NOA" address="0x00009888" value="0x4A1F1000" />
         <register type="NOA" address="0x00009888" value="0x4C1F0010" />
-        <register type="NOA" address="0x00009888" value="0x181F0000" />
+        <register type="NOA" address="0x00009888" value="0x141F0000" />
         <register type="NOA" address="0x00009888" value="0x401F1010" />
         <register type="NOA" address="0x00009888" value="0x421F3030" />
         <register type="NOA" address="0x00009888" value="0x441F4040" />
@@ -8063,8 +8070,8 @@
   <set name="Metric set Sampler 2"
        mdapi_supported_apis="OGL OCL IO BB"
        underscore_name="sampler_2"
-       hw_config_guid="afc0f021-8c33-4d60-803d-93487f96c7c1"
-       chipset="ICL"
+       hw_config_guid="58326100-b3e7-4554-b612-592e16dc6fd1"
+       chipset="LKF"
        symbol_name="Sampler_2"
        >
     <counter name="GPU Core Clocks"
@@ -8621,7 +8628,7 @@
              description="The total number of GPU memory bytes transferred between shaders and L3 caches w/o URB."
              data_type="uint64"
              max_equation="$GpuCoreClocks 64 UMUL $EuSubslicesTotalCount UMUL"
-             equation="$ShaderMemoryAccesses 64 UMUL"
+             equation="A 30 READ A 31 READ UADD A 32 READ UADD 64 UMUL"
              underscore_name="l3_shader_throughput"
              units="bytes"
              symbol_name="L3ShaderThroughput"
@@ -8683,76 +8690,61 @@
         <register type="NOA" address="0x00009888" value="0x14B20005" />
         <register type="NOA" address="0x00009888" value="0x14ED0005" />
         <register type="NOA" address="0x00009888" value="0x14F20005" />
-        <register type="NOA" address="0x00009888" value="0x1C1E000C" />
-        <register type="NOA" address="0x00009888" value="0x0E1F000C" />
-        <register type="NOA" address="0x00009888" value="0x1C200014" />
-        <register type="NOA" address="0x00009888" value="0x16212800" />
-        <register type="NOA" address="0x00009888" value="0x22290010" />
-        <register type="NOA" address="0x00009888" value="0x1A2A00D0" />
-        <register type="NOA" address="0x00009888" value="0x1A2C000A" />
+        <register type="NOA" address="0x00009888" value="0x1E1E0030" />
+        <register type="NOA" address="0x00009888" value="0x1A204000" />
+        <register type="NOA" address="0x00009888" value="0x1C200001" />
+        <register type="NOA" address="0x00009888" value="0x1E213000" />
+        <register type="NOA" address="0x00009888" value="0x1A2A00C0" />
+        <register type="NOA" address="0x00009888" value="0x182C6000" />
         <register type="NOA" address="0x00009888" value="0x0E2D0033" />
         <register type="NOA" address="0x00009888" value="0x022D0000" />
-        <register type="NOA" address="0x00009888" value="0x0E2F8000" />
-        <register type="NOA" address="0x00009888" value="0x1E300080" />
-        <register type="NOA" address="0x00009888" value="0x1A310008" />
+        <register type="NOA" address="0x00009888" value="0x1A2F8000" />
+        <register type="NOA" address="0x00009888" value="0x1C300008" />
+        <register type="NOA" address="0x00009888" value="0x0E318000" />
         <register type="NOA" address="0x00009888" value="0x0E321980" />
         <register type="NOA" address="0x00009888" value="0x02320000" />
         <register type="NOA" address="0x00009888" value="0x125E8000" />
         <register type="NOA" address="0x00009888" value="0x145E8000" />
-        <register type="NOA" address="0x00009888" value="0x025F8000" />
-        <register type="NOA" address="0x00009888" value="0x045F8000" />
         <register type="NOA" address="0x00009888" value="0x02604000" />
         <register type="NOA" address="0x00009888" value="0x04604000" />
-        <register type="NOA" address="0x00009888" value="0x02618000" />
-        <register type="NOA" address="0x00009888" value="0x04618000" />
-        <register type="NOA" address="0x00009888" value="0x12698000" />
-        <register type="NOA" address="0x00009888" value="0x026A4000" />
+        <register type="NOA" address="0x00009888" value="0x12618000" />
+        <register type="NOA" address="0x00009888" value="0x14618000" />
         <register type="NOA" address="0x00009888" value="0x046AC000" />
-        <register type="NOA" address="0x00009888" value="0x066C8000" />
-        <register type="NOA" address="0x00009888" value="0x086C8000" />
+        <register type="NOA" address="0x00009888" value="0x026C8000" />
+        <register type="NOA" address="0x00009888" value="0x046C4000" />
         <register type="NOA" address="0x00009888" value="0x006D1980" />
         <register type="NOA" address="0x00009888" value="0x026D0000" />
-        <register type="NOA" address="0x00009888" value="0x026F4000" />
-        <register type="NOA" address="0x00009888" value="0x1A702000" />
-        <register type="NOA" address="0x00009888" value="0x08718000" />
+        <register type="NOA" address="0x00009888" value="0x046F8000" />
+        <register type="NOA" address="0x00009888" value="0x14708000" />
+        <register type="NOA" address="0x00009888" value="0x02714000" />
         <register type="NOA" address="0x00009888" value="0x02720033" />
         <register type="NOA" address="0x00009888" value="0x169E8000" />
-        <register type="NOA" address="0x00009888" value="0x189E4000" />
-        <register type="NOA" address="0x00009888" value="0x069F8000" />
-        <register type="NOA" address="0x00009888" value="0x089F8000" />
+        <register type="NOA" address="0x00009888" value="0x189E8000" />
         <register type="NOA" address="0x00009888" value="0x06A04000" />
         <register type="NOA" address="0x00009888" value="0x08A04000" />
-        <register type="NOA" address="0x00009888" value="0x06A18000" />
-        <register type="NOA" address="0x00009888" value="0x08A18000" />
-        <register type="NOA" address="0x00009888" value="0x16A98000" />
-        <register type="NOA" address="0x00009888" value="0x06AA4000" />
+        <register type="NOA" address="0x00009888" value="0x16A18000" />
+        <register type="NOA" address="0x00009888" value="0x18A18000" />
         <register type="NOA" address="0x00009888" value="0x08AAC000" />
-        <register type="NOA" address="0x00009888" value="0x0AAC8000" />
-        <register type="NOA" address="0x00009888" value="0x0CAC8000" />
+        <register type="NOA" address="0x00009888" value="0x06AC8000" />
+        <register type="NOA" address="0x00009888" value="0x08AC4000" />
         <register type="NOA" address="0x00009888" value="0x02AD1980" />
-        <register type="NOA" address="0x00009888" value="0x04AF4000" />
-        <register type="NOA" address="0x00009888" value="0x1CB00002" />
-        <register type="NOA" address="0x00009888" value="0x0CB18000" />
+        <register type="NOA" address="0x00009888" value="0x08AF8000" />
+        <register type="NOA" address="0x00009888" value="0x18B04000" />
+        <register type="NOA" address="0x00009888" value="0x04B14000" />
         <register type="NOA" address="0x00009888" value="0x04B20033" />
         <register type="NOA" address="0x00009888" value="0x02B20000" />
-        <register type="NOA" address="0x00009888" value="0x18DE8000" />
-        <register type="NOA" address="0x00009888" value="0x1ADE0400" />
-        <register type="NOA" address="0x00009888" value="0x0ADF8000" />
-        <register type="NOA" address="0x00009888" value="0x0CDF0400" />
+        <register type="NOA" address="0x00009888" value="0x1CDE1800" />
         <register type="NOA" address="0x00009888" value="0x0AE04000" />
         <register type="NOA" address="0x00009888" value="0x0CE04000" />
-        <register type="NOA" address="0x00009888" value="0x0AE18000" />
-        <register type="NOA" address="0x00009888" value="0x0CE18000" />
-        <register type="NOA" address="0x00009888" value="0x1EE98000" />
-        <register type="NOA" address="0x00009888" value="0x0AEA4000" />
+        <register type="NOA" address="0x00009888" value="0x1EE10018" />
         <register type="NOA" address="0x00009888" value="0x0CEAC000" />
-        <register type="NOA" address="0x00009888" value="0x0EEC8000" />
-        <register type="NOA" address="0x00009888" value="0x18EC0002" />
+        <register type="NOA" address="0x00009888" value="0x0AEC8000" />
+        <register type="NOA" address="0x00009888" value="0x0CEC4000" />
         <register type="NOA" address="0x00009888" value="0x04ED1980" />
         <register type="NOA" address="0x00009888" value="0x02ED0000" />
-        <register type="NOA" address="0x00009888" value="0x06EF4000" />
-        <register type="NOA" address="0x00009888" value="0x1CF00020" />
-        <register type="NOA" address="0x00009888" value="0x18F10002" />
+        <register type="NOA" address="0x00009888" value="0x0CEF8000" />
+        <register type="NOA" address="0x00009888" value="0x1AF00400" />
+        <register type="NOA" address="0x00009888" value="0x06F14000" />
         <register type="NOA" address="0x00009888" value="0x06F20033" />
         <register type="NOA" address="0x00009888" value="0x02F20000" />
         <register type="NOA" address="0x00009888" value="0x10040140" />
@@ -8798,17 +8790,17 @@
         <register type="NOA" address="0x00009884" value="0x00000003" />
         <register type="NOA" address="0x00009888" value="0x1C1F3000" />
         <register type="NOA" address="0x00009888" value="0x2A1F0061" />
-        <register type="NOA" address="0x00009888" value="0x181F0000" />
+        <register type="NOA" address="0x00009888" value="0x141F0000" />
         <register type="NOA" address="0x00009888" value="0x521F0000" />
         <register type="NOA" address="0x00009888" value="0x541F0024" />
         <register type="NOA" address="0x00009888" value="0x3A1F8000" />
         <register type="NOA" address="0x00009888" value="0x4E1F2430" />
         <register type="NOA" address="0x00009888" value="0x501F0124" />
-        <register type="NOA" address="0x00009888" value="0x4C1F5047" />
+        <register type="NOA" address="0x00009888" value="0x4C1F0137" />
         <register type="NOA" address="0x00009888" value="0x301F0000" />
-        <register type="NOA" address="0x00009888" value="0x401F0020" />
-        <register type="NOA" address="0x00009888" value="0x421F0020" />
-        <register type="NOA" address="0x00009888" value="0x441F3050" />
+        <register type="NOA" address="0x00009888" value="0x401F0040" />
+        <register type="NOA" address="0x00009888" value="0x421F0040" />
+        <register type="NOA" address="0x00009888" value="0x441F3001" />
     </register_config>
     <register_config type="OA">
         <register type="OA" address="0x00002740" value="0x00000000" />
@@ -8829,8 +8821,8 @@
   <set name="Metric set TDL_1"
        mdapi_supported_apis="OGL OCL IO BB"
        underscore_name="tdl_1"
-       hw_config_guid="eddc2f32-b196-4a72-9bf8-21770e35f8bd"
-       chipset="ICL"
+       hw_config_guid="4c71735a-dfbf-4ebe-9df3-6c3db344a466"
+       chipset="LKF"
        symbol_name="TDL_1"
        >
     <counter name="GPU Core Clocks"
@@ -9466,7 +9458,7 @@
              description="The total number of GPU memory bytes transferred between shaders and L3 caches w/o URB."
              data_type="uint64"
              max_equation="$GpuCoreClocks 64 UMUL $EuSubslicesTotalCount UMUL"
-             equation="$ShaderMemoryAccesses 64 UMUL"
+             equation="A 30 READ A 31 READ UADD A 32 READ UADD 64 UMUL"
              underscore_name="l3_shader_throughput"
              units="bytes"
              symbol_name="L3ShaderThroughput"
@@ -9544,108 +9536,85 @@
         <register type="NOA" address="0x00009888" value="0x14E90000" />
         <register type="NOA" address="0x00009888" value="0x14EE0000" />
         <register type="NOA" address="0x00009888" value="0x161E8000" />
-        <register type="NOA" address="0x00009888" value="0x181EC000" />
-        <register type="NOA" address="0x00009888" value="0x1A1E0400" />
-        <register type="NOA" address="0x00009888" value="0x061F8000" />
-        <register type="NOA" address="0x00009888" value="0x081F8000" />
-        <register type="NOA" address="0x00009888" value="0x0A1F8000" />
-        <register type="NOA" address="0x00009888" value="0x0C1F0400" />
+        <register type="NOA" address="0x00009888" value="0x181E8000" />
+        <register type="NOA" address="0x00009888" value="0x1C1E1800" />
         <register type="NOA" address="0x00009888" value="0x06204000" />
         <register type="NOA" address="0x00009888" value="0x08204000" />
         <register type="NOA" address="0x00009888" value="0x0A204000" />
         <register type="NOA" address="0x00009888" value="0x0C204000" />
-        <register type="NOA" address="0x00009888" value="0x06218000" />
-        <register type="NOA" address="0x00009888" value="0x08218000" />
-        <register type="NOA" address="0x00009888" value="0x0A218000" />
-        <register type="NOA" address="0x00009888" value="0x0C218000" />
+        <register type="NOA" address="0x00009888" value="0x16218000" />
+        <register type="NOA" address="0x00009888" value="0x18218000" />
+        <register type="NOA" address="0x00009888" value="0x1E210018" />
         <register type="NOA" address="0x00009888" value="0x0429C300" />
         <register type="NOA" address="0x00009888" value="0x062900C5" />
-        <register type="NOA" address="0x00009888" value="0x22290000" />
-        <register type="NOA" address="0x00009888" value="0x1E290000" />
-        <register type="NOA" address="0x00009888" value="0x20290000" />
+        <register type="NOA" address="0x00009888" value="0x10290000" />
         <register type="NOA" address="0x00009888" value="0x062AC000" />
         <register type="NOA" address="0x00009888" value="0x082AC000" />
         <register type="NOA" address="0x00009888" value="0x0A2A4000" />
         <register type="NOA" address="0x00009888" value="0x0C2A4000" />
-        <register type="NOA" address="0x00009888" value="0x0A2C8000" />
-        <register type="NOA" address="0x00009888" value="0x0C2C8000" />
-        <register type="NOA" address="0x00009888" value="0x0E2C8000" />
-        <register type="NOA" address="0x00009888" value="0x182C0002" />
+        <register type="NOA" address="0x00009888" value="0x062C4000" />
+        <register type="NOA" address="0x00009888" value="0x082C4000" />
+        <register type="NOA" address="0x00009888" value="0x0A2C4000" />
+        <register type="NOA" address="0x00009888" value="0x0C2C4000" />
         <register type="NOA" address="0x00009888" value="0x022EC300" />
         <register type="NOA" address="0x00009888" value="0x042E00C5" />
         <register type="NOA" address="0x00009888" value="0x102E0000" />
-        <register type="NOA" address="0x00009888" value="0x022F8000" />
-        <register type="NOA" address="0x00009888" value="0x042F4000" />
-        <register type="NOA" address="0x00009888" value="0x1A304000" />
-        <register type="NOA" address="0x00009888" value="0x1C300001" />
-        <register type="NOA" address="0x00009888" value="0x1C5E000C" />
+        <register type="NOA" address="0x00009888" value="0x062F4000" />
+        <register type="NOA" address="0x00009888" value="0x082F4000" />
+        <register type="NOA" address="0x00009888" value="0x1E5E0030" />
         <register type="NOA" address="0x00009888" value="0x125E8000" />
         <register type="NOA" address="0x00009888" value="0x145E8000" />
-        <register type="NOA" address="0x00009888" value="0x0E5F000C" />
-        <register type="NOA" address="0x00009888" value="0x025F8000" />
-        <register type="NOA" address="0x00009888" value="0x045F8000" />
-        <register type="NOA" address="0x00009888" value="0x1C600014" />
+        <register type="NOA" address="0x00009888" value="0x1A604000" />
+        <register type="NOA" address="0x00009888" value="0x1C600001" />
         <register type="NOA" address="0x00009888" value="0x02604000" />
         <register type="NOA" address="0x00009888" value="0x04604000" />
-        <register type="NOA" address="0x00009888" value="0x16612800" />
-        <register type="NOA" address="0x00009888" value="0x02618000" />
-        <register type="NOA" address="0x00009888" value="0x04618000" />
+        <register type="NOA" address="0x00009888" value="0x1E613000" />
+        <register type="NOA" address="0x00009888" value="0x12618000" />
+        <register type="NOA" address="0x00009888" value="0x14618000" />
         <register type="NOA" address="0x00009888" value="0x0069C300" />
         <register type="NOA" address="0x00009888" value="0x026900C5" />
-        <register type="NOA" address="0x00009888" value="0x22690000" />
-        <register type="NOA" address="0x00009888" value="0x12690000" />
+        <register type="NOA" address="0x00009888" value="0x10690000" />
         <register type="NOA" address="0x00009888" value="0x1A6A00F0" />
         <register type="NOA" address="0x00009888" value="0x026A4000" />
         <register type="NOA" address="0x00009888" value="0x046A4000" />
-        <register type="NOA" address="0x00009888" value="0x1A6C000A" />
-        <register type="NOA" address="0x00009888" value="0x066C8000" />
-        <register type="NOA" address="0x00009888" value="0x086C8000" />
+        <register type="NOA" address="0x00009888" value="0x186C5000" />
+        <register type="NOA" address="0x00009888" value="0x026C4000" />
+        <register type="NOA" address="0x00009888" value="0x046C4000" />
         <register type="NOA" address="0x00009888" value="0x0E6EC5C3" />
         <register type="NOA" address="0x00009888" value="0x106E0000" />
-        <register type="NOA" address="0x00009888" value="0x0E6FC000" />
-        <register type="NOA" address="0x00009888" value="0x1E700050" />
-        <register type="NOA" address="0x00009888" value="0x1A9EC000" />
-        <register type="NOA" address="0x00009888" value="0x1C9E0003" />
-        <register type="NOA" address="0x00009888" value="0x0C9FC000" />
-        <register type="NOA" address="0x00009888" value="0x0E9F0003" />
-        <register type="NOA" address="0x00009888" value="0x1AA02A00" />
-        <register type="NOA" address="0x00009888" value="0x1CA00001" />
-        <register type="NOA" address="0x00009888" value="0x16A102A8" />
+        <register type="NOA" address="0x00009888" value="0x1A6F5000" />
+        <register type="NOA" address="0x00009888" value="0x1E9E000F" />
+        <register type="NOA" address="0x00009888" value="0x1AA01540" />
+        <register type="NOA" address="0x00009888" value="0x1EA10F00" />
         <register type="NOA" address="0x00009888" value="0x0CA9C5C3" />
-        <register type="NOA" address="0x00009888" value="0x22A90000" />
+        <register type="NOA" address="0x00009888" value="0x10A90000" />
         <register type="NOA" address="0x00009888" value="0x18AAF000" />
         <register type="NOA" address="0x00009888" value="0x1AAA0005" />
-        <register type="NOA" address="0x00009888" value="0x18ACAA00" />
+        <register type="NOA" address="0x00009888" value="0x18AC0550" />
         <register type="NOA" address="0x00009888" value="0x0AAEC5C3" />
         <register type="NOA" address="0x00009888" value="0x10AE0000" />
-        <register type="NOA" address="0x00009888" value="0x0AAFC000" />
-        <register type="NOA" address="0x00009888" value="0x1CB05000" />
+        <register type="NOA" address="0x00009888" value="0x1AAF0050" />
         <register type="NOA" address="0x00009888" value="0x10DE8000" />
-        <register type="NOA" address="0x00009888" value="0x1ADE3800" />
-        <register type="NOA" address="0x00009888" value="0x00DF8000" />
-        <register type="NOA" address="0x00009888" value="0x0CDF3800" />
+        <register type="NOA" address="0x00009888" value="0x1CDEE000" />
         <register type="NOA" address="0x00009888" value="0x00E04000" />
         <register type="NOA" address="0x00009888" value="0x0EE04000" />
-        <register type="NOA" address="0x00009888" value="0x1AE000A0" />
-        <register type="NOA" address="0x00009888" value="0x00E18000" />
-        <register type="NOA" address="0x00009888" value="0x0EE18000" />
-        <register type="NOA" address="0x00009888" value="0x14E18000" />
-        <register type="NOA" address="0x00009888" value="0x16E10002" />
+        <register type="NOA" address="0x00009888" value="0x18E04000" />
+        <register type="NOA" address="0x00009888" value="0x1AE00010" />
+        <register type="NOA" address="0x00009888" value="0x10E18000" />
+        <register type="NOA" address="0x00009888" value="0x1EE100E0" />
         <register type="NOA" address="0x00009888" value="0x08E9C5C3" />
-        <register type="NOA" address="0x00009888" value="0x22E90000" />
-        <register type="NOA" address="0x00009888" value="0x20E90000" />
+        <register type="NOA" address="0x00009888" value="0x10E90000" />
         <register type="NOA" address="0x00009888" value="0x00EAC000" />
         <register type="NOA" address="0x00009888" value="0x0EEAC000" />
         <register type="NOA" address="0x00009888" value="0x18EA0500" />
-        <register type="NOA" address="0x00009888" value="0x04EC8000" />
-        <register type="NOA" address="0x00009888" value="0x18EC00A8" />
+        <register type="NOA" address="0x00009888" value="0x00EC4000" />
+        <register type="NOA" address="0x00009888" value="0x0EEC4000" />
+        <register type="NOA" address="0x00009888" value="0x18EC0005" />
         <register type="NOA" address="0x00009888" value="0x00EE00C3" />
         <register type="NOA" address="0x00009888" value="0x06EEC500" />
         <register type="NOA" address="0x00009888" value="0x10EE0000" />
         <register type="NOA" address="0x00009888" value="0x00EF4000" />
-        <register type="NOA" address="0x00009888" value="0x06EF8000" />
-        <register type="NOA" address="0x00009888" value="0x18F04000" />
-        <register type="NOA" address="0x00009888" value="0x1CF00040" />
+        <register type="NOA" address="0x00009888" value="0x0EEF4000" />
         <register type="NOA" address="0x00009888" value="0x0C045400" />
         <register type="NOA" address="0x00009888" value="0x0E045555" />
         <register type="NOA" address="0x00009888" value="0x10040155" />
@@ -9710,14 +9679,14 @@
         <register type="NOA" address="0x00009888" value="0x3A1F8000" />
         <register type="NOA" address="0x00009888" value="0x4E1F2400" />
         <register type="NOA" address="0x00009888" value="0x3E1F3000" />
-        <register type="NOA" address="0x00009888" value="0x461F5030" />
-        <register type="NOA" address="0x00009888" value="0x481F0050" />
-        <register type="NOA" address="0x00009888" value="0x4A1F2000" />
-        <register type="NOA" address="0x00009888" value="0x4C1F0020" />
-        <register type="NOA" address="0x00009888" value="0x181F0000" />
-        <register type="NOA" address="0x00009888" value="0x401F2020" />
+        <register type="NOA" address="0x00009888" value="0x461F4030" />
+        <register type="NOA" address="0x00009888" value="0x481F0040" />
+        <register type="NOA" address="0x00009888" value="0x4A1F1000" />
+        <register type="NOA" address="0x00009888" value="0x4C1F0010" />
+        <register type="NOA" address="0x00009888" value="0x141F0000" />
+        <register type="NOA" address="0x00009888" value="0x401F1010" />
         <register type="NOA" address="0x00009888" value="0x421F3030" />
-        <register type="NOA" address="0x00009888" value="0x441F5050" />
+        <register type="NOA" address="0x00009888" value="0x441F4040" />
     </register_config>
     <register_config type="OA">
         <register type="OA" address="0x00002740" value="0x00000000" />
@@ -9756,8 +9725,8 @@
   <set name="Metric set TDL_2"
        mdapi_supported_apis="OGL OCL IO BB"
        underscore_name="tdl_2"
-       hw_config_guid="c6d3af7b-037b-4656-95e1-4f838f0a2c14"
-       chipset="ICL"
+       hw_config_guid="80e75f86-f8bc-4903-bf0f-38fd26cca636"
+       chipset="LKF"
        symbol_name="TDL_2"
        >
     <counter name="GPU Core Clocks"
@@ -10299,7 +10268,7 @@
              description="The total number of GPU memory bytes transferred between shaders and L3 caches w/o URB."
              data_type="uint64"
              max_equation="$GpuCoreClocks 64 UMUL $EuSubslicesTotalCount UMUL"
-             equation="$ShaderMemoryAccesses 64 UMUL"
+             equation="A 30 READ A 31 READ UADD A 32 READ UADD 64 UMUL"
              underscore_name="l3_shader_throughput"
              units="bytes"
              symbol_name="L3ShaderThroughput"
@@ -10376,73 +10345,61 @@
         <register type="NOA" address="0x00009888" value="0x14AE0000" />
         <register type="NOA" address="0x00009888" value="0x14E90000" />
         <register type="NOA" address="0x00009888" value="0x14EE0000" />
-        <register type="NOA" address="0x00009888" value="0x1C1E0006" />
-        <register type="NOA" address="0x00009888" value="0x0E1F0006" />
-        <register type="NOA" address="0x00009888" value="0x1C200005" />
-        <register type="NOA" address="0x00009888" value="0x16210A00" />
+        <register type="NOA" address="0x00009888" value="0x1E1E0018" />
+        <register type="NOA" address="0x00009888" value="0x1A205000" />
+        <register type="NOA" address="0x00009888" value="0x1E211800" />
         <register type="NOA" address="0x00009888" value="0x0C29C100" />
-        <register type="NOA" address="0x00009888" value="0x22290000" />
+        <register type="NOA" address="0x00009888" value="0x10290000" />
         <register type="NOA" address="0x00009888" value="0x1A2A0034" />
-        <register type="NOA" address="0x00009888" value="0x182C8000" />
-        <register type="NOA" address="0x00009888" value="0x1A2C0002" />
+        <register type="NOA" address="0x00009888" value="0x182C1400" />
         <register type="NOA" address="0x00009888" value="0x0E2E00C1" />
         <register type="NOA" address="0x00009888" value="0x102E0000" />
-        <register type="NOA" address="0x00009888" value="0x0E2F4000" />
-        <register type="NOA" address="0x00009888" value="0x1E300010" />
-        <register type="NOA" address="0x00009888" value="0x1C5E0008" />
+        <register type="NOA" address="0x00009888" value="0x1A2F1000" />
+        <register type="NOA" address="0x00009888" value="0x1E5E0020" />
         <register type="NOA" address="0x00009888" value="0x125E8000" />
-        <register type="NOA" address="0x00009888" value="0x0E5F0008" />
-        <register type="NOA" address="0x00009888" value="0x025F8000" />
-        <register type="NOA" address="0x00009888" value="0x1C600010" />
+        <register type="NOA" address="0x00009888" value="0x1C600001" />
         <register type="NOA" address="0x00009888" value="0x02604000" />
-        <register type="NOA" address="0x00009888" value="0x16612000" />
-        <register type="NOA" address="0x00009888" value="0x02618000" />
+        <register type="NOA" address="0x00009888" value="0x1E612000" />
+        <register type="NOA" address="0x00009888" value="0x12618000" />
         <register type="NOA" address="0x00009888" value="0x0E69C100" />
-        <register type="NOA" address="0x00009888" value="0x22690000" />
+        <register type="NOA" address="0x00009888" value="0x10690000" />
         <register type="NOA" address="0x00009888" value="0x1A6A0040" />
         <register type="NOA" address="0x00009888" value="0x026AC000" />
-        <register type="NOA" address="0x00009888" value="0x1A6C0008" />
-        <register type="NOA" address="0x00009888" value="0x066C8000" />
+        <register type="NOA" address="0x00009888" value="0x186C4000" />
+        <register type="NOA" address="0x00009888" value="0x026C4000" />
         <register type="NOA" address="0x00009888" value="0x006EC100" />
         <register type="NOA" address="0x00009888" value="0x106E0000" />
-        <register type="NOA" address="0x00009888" value="0x006F8000" />
-        <register type="NOA" address="0x00009888" value="0x1A700400" />
+        <register type="NOA" address="0x00009888" value="0x026F4000" />
         <register type="NOA" address="0x00009888" value="0x149E8000" />
         <register type="NOA" address="0x00009888" value="0x169E8000" />
-        <register type="NOA" address="0x00009888" value="0x049F8000" />
-        <register type="NOA" address="0x00009888" value="0x069F8000" />
         <register type="NOA" address="0x00009888" value="0x04A04000" />
         <register type="NOA" address="0x00009888" value="0x06A04000" />
-        <register type="NOA" address="0x00009888" value="0x04A18000" />
-        <register type="NOA" address="0x00009888" value="0x06A18000" />
+        <register type="NOA" address="0x00009888" value="0x14A18000" />
+        <register type="NOA" address="0x00009888" value="0x16A18000" />
         <register type="NOA" address="0x00009888" value="0x02A900C1" />
-        <register type="NOA" address="0x00009888" value="0x22A90000" />
+        <register type="NOA" address="0x00009888" value="0x10A90000" />
         <register type="NOA" address="0x00009888" value="0x04AA4000" />
         <register type="NOA" address="0x00009888" value="0x06AAC000" />
-        <register type="NOA" address="0x00009888" value="0x08AC8000" />
-        <register type="NOA" address="0x00009888" value="0x0AAC8000" />
+        <register type="NOA" address="0x00009888" value="0x04AC4000" />
+        <register type="NOA" address="0x00009888" value="0x06AC4000" />
         <register type="NOA" address="0x00009888" value="0x02AEC100" />
         <register type="NOA" address="0x00009888" value="0x10AE0000" />
-        <register type="NOA" address="0x00009888" value="0x02AF8000" />
-        <register type="NOA" address="0x00009888" value="0x1AB04000" />
-        <register type="NOA" address="0x00009888" value="0x18DEC000" />
-        <register type="NOA" address="0x00009888" value="0x08DF8000" />
-        <register type="NOA" address="0x00009888" value="0x0ADF8000" />
+        <register type="NOA" address="0x00009888" value="0x06AF4000" />
+        <register type="NOA" address="0x00009888" value="0x18DE8000" />
+        <register type="NOA" address="0x00009888" value="0x1CDE0800" />
         <register type="NOA" address="0x00009888" value="0x08E04000" />
         <register type="NOA" address="0x00009888" value="0x0AE04000" />
-        <register type="NOA" address="0x00009888" value="0x08E18000" />
-        <register type="NOA" address="0x00009888" value="0x0AE18000" />
+        <register type="NOA" address="0x00009888" value="0x18E18000" />
+        <register type="NOA" address="0x00009888" value="0x1EE10008" />
         <register type="NOA" address="0x00009888" value="0x04E900C1" />
-        <register type="NOA" address="0x00009888" value="0x22E90000" />
-        <register type="NOA" address="0x00009888" value="0x1CE90000" />
+        <register type="NOA" address="0x00009888" value="0x10E90000" />
         <register type="NOA" address="0x00009888" value="0x08EA4000" />
         <register type="NOA" address="0x00009888" value="0x0AEAC000" />
-        <register type="NOA" address="0x00009888" value="0x0CEC8000" />
-        <register type="NOA" address="0x00009888" value="0x0EEC8000" />
+        <register type="NOA" address="0x00009888" value="0x08EC4000" />
+        <register type="NOA" address="0x00009888" value="0x0AEC4000" />
         <register type="NOA" address="0x00009888" value="0x04EEC100" />
         <register type="NOA" address="0x00009888" value="0x10EE0000" />
-        <register type="NOA" address="0x00009888" value="0x04EF8000" />
-        <register type="NOA" address="0x00009888" value="0x1CF00004" />
+        <register type="NOA" address="0x00009888" value="0x0AEF4000" />
         <register type="NOA" address="0x00009888" value="0x10040150" />
         <register type="NOA" address="0x00009888" value="0x0C045000" />
         <register type="NOA" address="0x00009888" value="0x0E040015" />
@@ -10481,17 +10438,17 @@
         <register type="NOA" address="0x00009888" value="0x0A1DA000" />
         <register type="NOA" address="0x00009884" value="0x00000003" />
         <register type="NOA" address="0x00009888" value="0x1C1F3061" />
-        <register type="NOA" address="0x00009888" value="0x181F0000" />
+        <register type="NOA" address="0x00009888" value="0x141F0000" />
         <register type="NOA" address="0x00009888" value="0x521F4000" />
         <register type="NOA" address="0x00009888" value="0x541F0024" />
         <register type="NOA" address="0x00009888" value="0x3A1F8000" />
-        <register type="NOA" address="0x00009888" value="0x4E1F2420" />
+        <register type="NOA" address="0x00009888" value="0x4E1F2410" />
         <register type="NOA" address="0x00009888" value="0x501F0024" />
-        <register type="NOA" address="0x00009888" value="0x4C1F3050" />
+        <register type="NOA" address="0x00009888" value="0x4C1F3040" />
         <register type="NOA" address="0x00009888" value="0x301F0000" />
-        <register type="NOA" address="0x00009888" value="0x401F2000" />
-        <register type="NOA" address="0x00009888" value="0x421F5000" />
-        <register type="NOA" address="0x00009888" value="0x441F3730" />
+        <register type="NOA" address="0x00009888" value="0x401F1000" />
+        <register type="NOA" address="0x00009888" value="0x421F4000" />
+        <register type="NOA" address="0x00009888" value="0x441F1730" />
     </register_config>
     <register_config type="OA">
         <register type="OA" address="0x00002740" value="0x00000000" />
@@ -10512,8 +10469,8 @@
   <set name="Metric set TDL_3"
        mdapi_supported_apis="OGL OCL IO BB"
        underscore_name="tdl_3"
-       hw_config_guid="fd25ec19-3ed1-40c9-8648-1d2387449a92"
-       chipset="ICL"
+       hw_config_guid="9c517add-e263-4cbe-b7f8-9986f737e68a"
+       chipset="LKF"
        symbol_name="TDL_3"
        >
     <counter name="GPU Core Clocks"
@@ -11131,7 +11088,7 @@
              description="The total number of GPU memory bytes transferred between shaders and L3 caches w/o URB."
              data_type="uint64"
              max_equation="$GpuCoreClocks 64 UMUL $EuSubslicesTotalCount UMUL"
-             equation="$ShaderMemoryAccesses 64 UMUL"
+             equation="A 30 READ A 31 READ UADD A 32 READ UADD 64 UMUL"
              underscore_name="l3_shader_throughput"
              units="bytes"
              symbol_name="L3ShaderThroughput"
@@ -11247,105 +11204,85 @@
         <register type="NOA" address="0x00009888" value="0x14EE2C00" />
         <register type="NOA" address="0x00009888" value="0x16EE0013" />
         <register type="NOA" address="0x00009888" value="0x101E8000" />
-        <register type="NOA" address="0x00009888" value="0x1A1E3800" />
-        <register type="NOA" address="0x00009888" value="0x001F8000" />
-        <register type="NOA" address="0x00009888" value="0x0C1F3800" />
+        <register type="NOA" address="0x00009888" value="0x1C1EE000" />
         <register type="NOA" address="0x00009888" value="0x00204000" />
         <register type="NOA" address="0x00009888" value="0x0E204000" />
-        <register type="NOA" address="0x00009888" value="0x1A2000A0" />
-        <register type="NOA" address="0x00009888" value="0x00218000" />
-        <register type="NOA" address="0x00009888" value="0x0E218000" />
-        <register type="NOA" address="0x00009888" value="0x14218000" />
-        <register type="NOA" address="0x00009888" value="0x16210002" />
+        <register type="NOA" address="0x00009888" value="0x18204000" />
+        <register type="NOA" address="0x00009888" value="0x1A200010" />
+        <register type="NOA" address="0x00009888" value="0x10218000" />
+        <register type="NOA" address="0x00009888" value="0x1E2100E0" />
         <register type="NOA" address="0x00009888" value="0x002900C7" />
         <register type="NOA" address="0x00009888" value="0x0629CF00" />
-        <register type="NOA" address="0x00009888" value="0x22290000" />
         <register type="NOA" address="0x00009888" value="0x10290000" />
-        <register type="NOA" address="0x00009888" value="0x20290000" />
         <register type="NOA" address="0x00009888" value="0x002A4000" />
         <register type="NOA" address="0x00009888" value="0x0E2A4000" />
         <register type="NOA" address="0x00009888" value="0x182A0F00" />
-        <register type="NOA" address="0x00009888" value="0x042C8000" />
-        <register type="NOA" address="0x00009888" value="0x182C00A8" />
+        <register type="NOA" address="0x00009888" value="0x002C4000" />
+        <register type="NOA" address="0x00009888" value="0x0E2C4000" />
+        <register type="NOA" address="0x00009888" value="0x182C0005" />
         <register type="NOA" address="0x00009888" value="0x082ECFC7" />
         <register type="NOA" address="0x00009888" value="0x102E0000" />
-        <register type="NOA" address="0x00009888" value="0x082FC000" />
-        <register type="NOA" address="0x00009888" value="0x1C300500" />
-        <register type="NOA" address="0x00009888" value="0x1A5EC000" />
-        <register type="NOA" address="0x00009888" value="0x1C5E0003" />
-        <register type="NOA" address="0x00009888" value="0x0C5FC000" />
-        <register type="NOA" address="0x00009888" value="0x0E5F0003" />
-        <register type="NOA" address="0x00009888" value="0x1A602A00" />
-        <register type="NOA" address="0x00009888" value="0x1C600001" />
-        <register type="NOA" address="0x00009888" value="0x166102A8" />
+        <register type="NOA" address="0x00009888" value="0x1A2F0005" />
+        <register type="NOA" address="0x00009888" value="0x1E5E000F" />
+        <register type="NOA" address="0x00009888" value="0x1A601540" />
+        <register type="NOA" address="0x00009888" value="0x1E610F00" />
         <register type="NOA" address="0x00009888" value="0x0A69CFC7" />
-        <register type="NOA" address="0x00009888" value="0x22690000" />
+        <register type="NOA" address="0x00009888" value="0x10690000" />
         <register type="NOA" address="0x00009888" value="0x186A5000" />
         <register type="NOA" address="0x00009888" value="0x1A6A000F" />
-        <register type="NOA" address="0x00009888" value="0x186CAA00" />
+        <register type="NOA" address="0x00009888" value="0x186C0550" />
         <register type="NOA" address="0x00009888" value="0x0C6ECFC7" />
         <register type="NOA" address="0x00009888" value="0x106E0000" />
-        <register type="NOA" address="0x00009888" value="0x0C6FC000" />
-        <register type="NOA" address="0x00009888" value="0x1E700005" />
-        <register type="NOA" address="0x00009888" value="0x1C9E000C" />
+        <register type="NOA" address="0x00009888" value="0x1A6F0500" />
+        <register type="NOA" address="0x00009888" value="0x1E9E0030" />
         <register type="NOA" address="0x00009888" value="0x129E8000" />
         <register type="NOA" address="0x00009888" value="0x149E8000" />
-        <register type="NOA" address="0x00009888" value="0x0E9F000C" />
-        <register type="NOA" address="0x00009888" value="0x029F8000" />
-        <register type="NOA" address="0x00009888" value="0x049F8000" />
-        <register type="NOA" address="0x00009888" value="0x1CA00014" />
+        <register type="NOA" address="0x00009888" value="0x1AA04000" />
+        <register type="NOA" address="0x00009888" value="0x1CA00001" />
         <register type="NOA" address="0x00009888" value="0x02A04000" />
         <register type="NOA" address="0x00009888" value="0x04A04000" />
-        <register type="NOA" address="0x00009888" value="0x16A12800" />
-        <register type="NOA" address="0x00009888" value="0x02A18000" />
-        <register type="NOA" address="0x00009888" value="0x04A18000" />
+        <register type="NOA" address="0x00009888" value="0x1EA13000" />
+        <register type="NOA" address="0x00009888" value="0x12A18000" />
+        <register type="NOA" address="0x00009888" value="0x14A18000" />
         <register type="NOA" address="0x00009888" value="0x0EA9CFC7" />
-        <register type="NOA" address="0x00009888" value="0x22A90000" />
+        <register type="NOA" address="0x00009888" value="0x10A90000" />
         <register type="NOA" address="0x00009888" value="0x1AAA0050" />
         <register type="NOA" address="0x00009888" value="0x02AAC000" />
         <register type="NOA" address="0x00009888" value="0x04AAC000" />
-        <register type="NOA" address="0x00009888" value="0x1AAC000A" />
-        <register type="NOA" address="0x00009888" value="0x06AC8000" />
-        <register type="NOA" address="0x00009888" value="0x08AC8000" />
+        <register type="NOA" address="0x00009888" value="0x18AC5000" />
+        <register type="NOA" address="0x00009888" value="0x02AC4000" />
+        <register type="NOA" address="0x00009888" value="0x04AC4000" />
         <register type="NOA" address="0x00009888" value="0x00AEC700" />
         <register type="NOA" address="0x00009888" value="0x02AE00CF" />
         <register type="NOA" address="0x00009888" value="0x10AE0000" />
-        <register type="NOA" address="0x00009888" value="0x00AF8000" />
         <register type="NOA" address="0x00009888" value="0x02AF4000" />
-        <register type="NOA" address="0x00009888" value="0x1AB01400" />
+        <register type="NOA" address="0x00009888" value="0x04AF4000" />
         <register type="NOA" address="0x00009888" value="0x16DE8000" />
-        <register type="NOA" address="0x00009888" value="0x18DEC000" />
-        <register type="NOA" address="0x00009888" value="0x1ADE0400" />
-        <register type="NOA" address="0x00009888" value="0x06DF8000" />
-        <register type="NOA" address="0x00009888" value="0x08DF8000" />
-        <register type="NOA" address="0x00009888" value="0x0ADF8000" />
-        <register type="NOA" address="0x00009888" value="0x0CDF0400" />
+        <register type="NOA" address="0x00009888" value="0x18DE8000" />
+        <register type="NOA" address="0x00009888" value="0x1CDE1800" />
         <register type="NOA" address="0x00009888" value="0x06E04000" />
         <register type="NOA" address="0x00009888" value="0x08E04000" />
         <register type="NOA" address="0x00009888" value="0x0AE04000" />
         <register type="NOA" address="0x00009888" value="0x0CE04000" />
-        <register type="NOA" address="0x00009888" value="0x06E18000" />
-        <register type="NOA" address="0x00009888" value="0x08E18000" />
-        <register type="NOA" address="0x00009888" value="0x0AE18000" />
-        <register type="NOA" address="0x00009888" value="0x0CE18000" />
+        <register type="NOA" address="0x00009888" value="0x16E18000" />
+        <register type="NOA" address="0x00009888" value="0x18E18000" />
+        <register type="NOA" address="0x00009888" value="0x1EE10018" />
         <register type="NOA" address="0x00009888" value="0x02E9C700" />
         <register type="NOA" address="0x00009888" value="0x04E900CF" />
-        <register type="NOA" address="0x00009888" value="0x22E90000" />
-        <register type="NOA" address="0x00009888" value="0x1CE90000" />
+        <register type="NOA" address="0x00009888" value="0x10E90000" />
         <register type="NOA" address="0x00009888" value="0x06EA4000" />
         <register type="NOA" address="0x00009888" value="0x08EA4000" />
         <register type="NOA" address="0x00009888" value="0x0AEAC000" />
         <register type="NOA" address="0x00009888" value="0x0CEAC000" />
-        <register type="NOA" address="0x00009888" value="0x0AEC8000" />
-        <register type="NOA" address="0x00009888" value="0x0CEC8000" />
-        <register type="NOA" address="0x00009888" value="0x0EEC8000" />
-        <register type="NOA" address="0x00009888" value="0x18EC0002" />
+        <register type="NOA" address="0x00009888" value="0x06EC4000" />
+        <register type="NOA" address="0x00009888" value="0x08EC4000" />
+        <register type="NOA" address="0x00009888" value="0x0AEC4000" />
+        <register type="NOA" address="0x00009888" value="0x0CEC4000" />
         <register type="NOA" address="0x00009888" value="0x04EEC700" />
         <register type="NOA" address="0x00009888" value="0x06EE00CF" />
         <register type="NOA" address="0x00009888" value="0x10EE0000" />
-        <register type="NOA" address="0x00009888" value="0x04EF8000" />
-        <register type="NOA" address="0x00009888" value="0x06EF4000" />
-        <register type="NOA" address="0x00009888" value="0x1CF00014" />
+        <register type="NOA" address="0x00009888" value="0x0AEF4000" />
+        <register type="NOA" address="0x00009888" value="0x0CEF4000" />
         <register type="NOA" address="0x00009888" value="0x0C045400" />
         <register type="NOA" address="0x00009888" value="0x0E045555" />
         <register type="NOA" address="0x00009888" value="0x10040155" />
@@ -11408,15 +11345,15 @@
         <register type="NOA" address="0x00009888" value="0x521F4924" />
         <register type="NOA" address="0x00009888" value="0x541F0024" />
         <register type="NOA" address="0x00009888" value="0x3A1F8000" />
-        <register type="NOA" address="0x00009888" value="0x4E1F2420" />
-        <register type="NOA" address="0x00009888" value="0x3E1F5000" />
-        <register type="NOA" address="0x00009888" value="0x461F3050" />
-        <register type="NOA" address="0x00009888" value="0x481F2030" />
-        <register type="NOA" address="0x00009888" value="0x4A1F0020" />
-        <register type="NOA" address="0x00009888" value="0x4C1F2000" />
-        <register type="NOA" address="0x00009888" value="0x181F0000" />
+        <register type="NOA" address="0x00009888" value="0x4E1F2410" />
+        <register type="NOA" address="0x00009888" value="0x3E1F4000" />
+        <register type="NOA" address="0x00009888" value="0x461F3040" />
+        <register type="NOA" address="0x00009888" value="0x481F1030" />
+        <register type="NOA" address="0x00009888" value="0x4A1F0010" />
+        <register type="NOA" address="0x00009888" value="0x4C1F1000" />
+        <register type="NOA" address="0x00009888" value="0x141F0000" />
         <register type="NOA" address="0x00009888" value="0x401F0000" />
-        <register type="NOA" address="0x00009888" value="0x421F5050" />
+        <register type="NOA" address="0x00009888" value="0x421F4040" />
         <register type="NOA" address="0x00009888" value="0x441F3030" />
     </register_config>
     <register_config type="OA">
@@ -11438,8 +11375,8 @@
   <set name="Gpu Rings Busyness"
        mdapi_supported_apis="OGL OCL MEDIA IO BB"
        underscore_name="gpu_busyness"
-       hw_config_guid="40dc79f2-88c8-47c6-8f86-f509e39fbe5d"
-       chipset="ICL"
+       hw_config_guid="c3103887-8c7c-482a-b923-3d68dd340598"
+       chipset="LKF"
        symbol_name="GpuBusyness"
        >
     <counter name="GPU Core Clocks"
@@ -11598,58 +11535,53 @@
         <register type="NOA" address="0x00000D04" value="0x00000200" />
         <register type="NOA" address="0x00009840" value="0x00000000" />
         <register type="NOA" address="0x00009884" value="0x00000003" />
-        <register type="NOA" address="0x00009888" value="0x0E061200" />
-        <register type="NOA" address="0x00009888" value="0x22062400" />
+        <register type="NOA" address="0x00009888" value="0x12021200" />
+        <register type="NOA" address="0x00009888" value="0x14040120" />
         <register type="NOA" address="0x00009888" value="0x10002400" />
-        <register type="NOA" address="0x00009888" value="0x00038000" />
-        <register type="NOA" address="0x00009888" value="0x06032000" />
-        <register type="NOA" address="0x00009888" value="0x020600F3" />
-        <register type="NOA" address="0x00009888" value="0x0C060043" />
-        <register type="NOA" address="0x00009888" value="0x20060000" />
+        <register type="NOA" address="0x00009888" value="0x02020083" />
+        <register type="NOA" address="0x00009888" value="0x10020000" />
+        <register type="NOA" address="0x00009888" value="0x00020000" />
+        <register type="NOA" address="0x00009888" value="0x06040043" />
+        <register type="NOA" address="0x00009888" value="0x10040000" />
+        <register type="NOA" address="0x00009888" value="0x1C040004" />
         <register type="NOA" address="0x00009888" value="0x02000023" />
-        <register type="NOA" address="0x00009888" value="0x20002000" />
+        <register type="NOA" address="0x00009888" value="0x22000000" />
+        <register type="NOA" address="0x00009888" value="0x14000000" />
+        <register type="NOA" address="0x00009888" value="0x18008000" />
+        <register type="NOA" address="0x00009888" value="0x04194000" />
         <register type="NOA" address="0x00009888" value="0x081A8000" />
         <register type="NOA" address="0x00009888" value="0x3A1F6000" />
         <register type="NOA" address="0x00009888" value="0x4E1F2900" />
         <register type="NOA" address="0x00009888" value="0x501F00E9" />
-        <register type="NOA" address="0x00009888" value="0x10204000" />
-        <register type="NOA" address="0x00009888" value="0x0C214000" />
-        <register type="NOA" address="0x00009888" value="0x181F0000" />
-        <register type="NOA" address="0x00009888" value="0x401F4131" />
-        <register type="NOA" address="0x00009888" value="0x421F1021" />
-        <register type="NOA" address="0x00009888" value="0x441F3100" />
+        <register type="NOA" address="0x00009888" value="0x04218000" />
+        <register type="NOA" address="0x00009888" value="0x06212000" />
+        <register type="NOA" address="0x00009888" value="0x141F0000" />
+        <register type="NOA" address="0x00009888" value="0x401F0160" />
+        <register type="NOA" address="0x00009888" value="0x421F0050" />
+        <register type="NOA" address="0x00009888" value="0x441F0100" />
         <register type="NOA" address="0x00009888" value="0x301F0000" />
         <register type="NOA" address="0x00009884" value="0x00000002" />
         <register type="NOA" address="0x00009888" value="0x181B2400" />
         <register type="NOA" address="0x00009888" value="0x185B2400" />
-        <register type="NOA" address="0x00009888" value="0x12240120" />
+        <register type="NOA" address="0x00009888" value="0x14231200" />
         <register type="NOA" address="0x00009888" value="0x06218000" />
         <register type="NOA" address="0x00009888" value="0x08212000" />
-        <register type="NOA" address="0x00009888" value="0x0A0A8000" />
-        <register type="NOA" address="0x00009888" value="0x180B8000" />
-        <register type="NOA" address="0x00009888" value="0x0A0C8000" />
-        <register type="NOA" address="0x00009888" value="0x040F8000" />
-        <register type="NOA" address="0x00009888" value="0x0E080010" />
+        <register type="NOA" address="0x00009888" value="0x080D8000" />
+        <register type="NOA" address="0x00009888" value="0x040F4000" />
+        <register type="NOA" address="0x00009888" value="0x0828C000" />
         <register type="NOA" address="0x00009888" value="0x041B8300" />
-        <register type="NOA" address="0x00009888" value="0x101B0000" />
         <register type="NOA" address="0x00009888" value="0x221B0000" />
-        <register type="NOA" address="0x00009888" value="0x041E4000" />
-        <register type="NOA" address="0x00009888" value="0x084A8000" />
-        <register type="NOA" address="0x00009888" value="0x184B4000" />
-        <register type="NOA" address="0x00009888" value="0x084C8000" />
-        <register type="NOA" address="0x00009888" value="0x044F2000" />
-        <register type="NOA" address="0x00009888" value="0x0E480004" />
+        <register type="NOA" address="0x00009888" value="0x1A1B0000" />
+        <register type="NOA" address="0x00009888" value="0x22162000" />
+        <register type="NOA" address="0x00009888" value="0x084D4000" />
+        <register type="NOA" address="0x00009888" value="0x044F1000" />
+        <register type="NOA" address="0x00009888" value="0x08683000" />
         <register type="NOA" address="0x00009888" value="0x045B0083" />
-        <register type="NOA" address="0x00009888" value="0x105B0000" />
         <register type="NOA" address="0x00009888" value="0x225B0000" />
-        <register type="NOA" address="0x00009888" value="0x045E1000" />
-        <register type="NOA" address="0x00009888" value="0x0823A000" />
-        <register type="NOA" address="0x00009888" value="0x02242980" />
-        <register type="NOA" address="0x00009888" value="0x10240000" />
-        <register type="NOA" address="0x00009888" value="0x06240000" />
-        <register type="NOA" address="0x00009888" value="0x0A244000" />
-        <register type="NOA" address="0x00009888" value="0x1C250004" />
-        <register type="NOA" address="0x00009888" value="0x08268000" />
+        <register type="NOA" address="0x00009888" value="0x22560800" />
+        <register type="NOA" address="0x00009888" value="0x06230093" />
+        <register type="NOA" address="0x00009888" value="0x20230000" />
+        <register type="NOA" address="0x00009888" value="0x0A238000" />
     </register_config>
     <register_config type="OA">
         <register type="OA" address="0x00002740" value="0x00000000" />
@@ -11665,8 +11597,8 @@
   <set name="Metric set TestOa"
        mdapi_supported_apis="OGL OCL IO BB"
        underscore_name="test_oa"
-       hw_config_guid="3c0bf614-5d67-4326-887f-a24eb8a58244"
-       chipset="ICL"
+       hw_config_guid="82b6b321-f93e-445a-a285-f30391ef1dc5"
+       chipset="LKF"
        symbol_name="TestOa"
        >
     <counter name="TestCounter7"
@@ -11830,13 +11762,15 @@
         <register type="NOA" address="0x00000D04" value="0x00000200" />
         <register type="NOA" address="0x00009840" value="0x00000000" />
         <register type="NOA" address="0x00009884" value="0x00000003" />
-        <register type="NOA" address="0x00009888" value="0x16130000" />
-        <register type="NOA" address="0x00009888" value="0x24000001" />
-        <register type="NOA" address="0x00009888" value="0x0E130056" />
+        <register type="NOA" address="0x00009888" value="0x18130000" />
+        <register type="NOA" address="0x00009888" value="0x22000004" />
+        <register type="NOA" address="0x00009888" value="0x0E130076" />
         <register type="NOA" address="0x00009888" value="0x10130000" />
-        <register type="NOA" address="0x00009888" value="0x1A130000" />
+        <register type="NOA" address="0x00009888" value="0x1E130000" />
+        <register type="NOA" address="0x00009888" value="0x0E164000" />
+        <register type="NOA" address="0x00009888" value="0x1A1A0004" />
         <register type="NOA" address="0x00009888" value="0x541F0001" />
-        <register type="NOA" address="0x00009888" value="0x181F0000" />
+        <register type="NOA" address="0x00009888" value="0x141F0000" />
         <register type="NOA" address="0x00009888" value="0x4C1F0000" />
         <register type="NOA" address="0x00009888" value="0x301F0000" />
     </register_config>

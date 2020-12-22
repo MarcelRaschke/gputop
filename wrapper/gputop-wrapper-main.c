@@ -58,6 +58,7 @@ static struct {
         int width;
     } *metric_columns;
     int n_metric_columns;
+    bool all_columns;
     bool human_units;
     bool print_headers;
     bool print_maximums;
@@ -298,7 +299,7 @@ static void print_metric_counter(struct gputop_client_context *ctx,
                                  const struct gputop_metric_set *metric_set)
 {
     int i, max_symbol_length = 0;
-    comment("ALL: Timestamp");
+    comment("all: Timestamp");
     for (i = 0; i < metric_set->n_counters; i++) {
         comment(",%s", metric_set->counters[i].symbol_name);
         max_symbol_length = MAX2(strlen(metric_set->counters[i].symbol_name),
@@ -499,8 +500,19 @@ static bool handle_features()
         return true;
     }
     if (!context.metric_columns) {
-        print_metric_counter(ctx, ctx->metric_set);
-        return true;
+        if (!context.all_columns) {
+            print_metric_counter(ctx, ctx->metric_set);
+            return true;
+        } else {
+            context.n_metric_columns = ctx->metric_set->n_counters + 1;
+            context.metric_columns = calloc(context.n_metric_columns,
+                                            sizeof(context.metric_columns[0]));
+            context.metric_columns[0].symbol_name = strdup("Timestamp");
+            for (i = 1; i < context.n_metric_columns; i++) {
+                context.metric_columns[i].symbol_name =
+                    strdup(ctx->metric_set->counters[i - 1].symbol_name);
+            }
+        }
     }
     if (!context.metric_columns[0].counter) {
         for (i = 0; i < context.n_metric_columns; i++) {
@@ -609,18 +621,19 @@ static void usage(void)
            "\t -p, --port <port>                 Port on which the server is running\n"
            "\t -P, --period <period>             Accumulation period (in seconds, floating point)\n"
            "\t -m, --metric <name>               Metric set to use\n"
-           "                                     (prints out a list of metric sets if missing)\n"
+           "\t                                   (prints out a list of metric sets with: -m list)\n"
            "\t -M, --max                         Outputs maximum counter values\n"
-           "                                     (first line after units)\n"
+           "\t                                   (first line after units)\n"
            "\t -c, --columns <col0,col1,..>      Columns to print out\n"
-           "                                     (prints out a lists of counters if missing)\n"
+           "\t                                   (prints out a lists of counters with: -c list,\n"
+           "\t                                    selects all counters with: -c all)\n"
            "\t -n, --no-human-units              Disable human readable units (for machine readable output)\n"
            "\t -N, --no-headers                  Disable headers (for machine readable output)\n"
            "\t -O, --child-output <filename>     Outputs the child's standard output to filename\n"
            "\t -o, --output <filename>           Outputs gputop-wrapper's data to filename\n"
-           "                                     (disables human readable units)\n"
+           "\t                                   (disables human readable units)\n"
            "\t -w, --max-inactive-time <time>    Maximum time of inactivity before killing\n"
-           "                                     the child process (in seconds, floating point)\n"
+           "\t                                   the child process (in seconds, floating point)\n"
            "\n"
         );
 }
@@ -670,7 +683,7 @@ int main (int argc, char **argv)
     context.ctx.oa_aggregation_period_ns = 1000000000ULL;
 
     while (!opt_done &&
-           (opt = getopt_long(argc, argv, "c:hH:m:Mp:P:-nNO:o:", long_options, NULL)) != -1)
+           (opt = getopt_long(argc, argv, "c:hH:m:Mp:P:-nNO:o:w:", long_options, NULL)) != -1)
     {
         switch (opt) {
         case 'h':
@@ -680,24 +693,29 @@ int main (int argc, char **argv)
             host = optarg;
             break;
         case 'm':
-            context.metric_name = optarg;
+            if (strcmp(optarg, "list"))
+                context.metric_name = optarg;
             break;
         case 'M':
             context.print_maximums = true;
             break;
         case 'c': {
-            const char *s = optarg;
-            int n;
-            context.n_metric_columns = 1;
-            while ((s = next_column(s)) != NULL)
-                context.n_metric_columns++;
+            if (!strcmp(optarg, "all")) {
+                context.all_columns = true;
+            } else if (strcmp(optarg, "list")) {
+                const char *s = optarg;
+                int n;
+                context.n_metric_columns = 1;
+                while ((s = next_column(s)) != NULL)
+                    context.n_metric_columns++;
 
-            context.metric_columns =
-                calloc(context.n_metric_columns, sizeof(context.metric_columns[0]));
+                context.metric_columns =
+                    calloc(context.n_metric_columns, sizeof(context.metric_columns[0]));
 
-            for (s = optarg, n = 0; s != NULL; s = next_column(s)) {
-                context.metric_columns[n++].symbol_name =
-                    strndup(s, next_column(s) ? (next_column(s) - s - 1) : strlen(s));
+                for (s = optarg, n = 0; s != NULL; s = next_column(s)) {
+                    context.metric_columns[n++].symbol_name =
+                        strndup(s, next_column(s) ? (next_column(s) - s - 1) : strlen(s));
+                }
             }
             break;
         }

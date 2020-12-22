@@ -28,9 +28,18 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+#include "util/macros.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+struct drm_i915_query_topology_info;
+
+#define GEN_DEVICE_MAX_SLICES           (6)  /* Maximum on gen10 */
+#define GEN_DEVICE_MAX_SUBSLICES        (8)  /* Maximum on gen11 */
+#define GEN_DEVICE_MAX_EUS_PER_SUBSLICE (10) /* Maximum on Haswell */
+#define GEN_DEVICE_MAX_PIXEL_PIPES      (2)  /* Maximum on gen11 */
 
 /**
  * Intel hardware information and quirks
@@ -38,6 +47,7 @@ extern "C" {
 struct gen_device_info
 {
    int gen; /**< Generation number: 4, 5, 6, 7, ... */
+   int revision;
    int gt;
 
    bool is_g4x;
@@ -52,6 +62,7 @@ struct gen_device_info
    bool is_geminilake;
    bool is_coffeelake;
    bool is_cannonlake;
+   bool is_elkhartlake;
 
    bool has_hiz_and_separate_stencil;
    bool must_use_separate_stencil;
@@ -65,6 +76,8 @@ struct gen_device_info
    bool has_surface_tile_offset;
    bool supports_simd16_3src;
    bool has_resource_streamer;
+   bool disable_ccs_repack;
+   bool has_aux_map;
 
    /**
     * \name Intel hardware quirks
@@ -112,12 +125,55 @@ struct gen_device_info
    /**
     * Number of subslices for each slice (used to be uniform until CNL).
     */
-   unsigned num_subslices[3];
+   unsigned num_subslices[GEN_DEVICE_MAX_SUBSLICES];
+
+   /**
+    * Number of subslices on each pixel pipe (ICL).
+    */
+   unsigned ppipe_subslices[GEN_DEVICE_MAX_PIXEL_PIPES];
+
+   /**
+    * Upper bound of number of EU per subslice (some SKUs might have just 1 EU
+    * fused across all subslices, like 47 EUs, in which case this number won't
+    * be acurate for one subslice).
+    */
+   unsigned num_eu_per_subslice;
 
    /**
     * Number of threads per eu, varies between 4 and 8 between generations.
     */
    unsigned num_thread_per_eu;
+
+   /**
+    * A bit mask of the slices available.
+    */
+   uint8_t slice_masks;
+
+   /**
+    * An array of bit mask of the subslices available, use subslice_slice_stride
+    * to access this array.
+    */
+   uint8_t subslice_masks[GEN_DEVICE_MAX_SLICES *
+                          DIV_ROUND_UP(GEN_DEVICE_MAX_SUBSLICES, 8)];
+
+   /**
+    * An array of bit mask of EUs available, use eu_slice_stride &
+    * eu_subslice_stride to access this array.
+    */
+   uint8_t eu_masks[GEN_DEVICE_MAX_SLICES *
+                    GEN_DEVICE_MAX_SUBSLICES *
+                    DIV_ROUND_UP(GEN_DEVICE_MAX_EUS_PER_SUBSLICE, 8)];
+
+   /**
+    * Stride to access subslice_masks[].
+    */
+   uint16_t subslice_slice_stride;
+
+   /**
+    * Strides to access eu_masks[].
+    */
+   uint16_t eu_slice_stride;
+   uint16_t eu_subslice_stride;
 
    unsigned l3_banks;
    unsigned max_vs_threads;   /**< Maximum Vertex Shader threads */
@@ -195,16 +251,47 @@ struct gen_device_info
     */
    uint64_t timestamp_frequency;
 
+   /**
+    * ID to put into the .aub files.
+    */
+   int simulator_id;
+
+   /**
+    * holds the pci device id
+    */
+   uint32_t chipset_id;
+
+   /**
+    * no_hw is true when the chipset_id pci device id has been overridden
+    */
+   bool no_hw;
    /** @} */
 };
 
 #define gen_device_info_is_9lp(devinfo) \
    ((devinfo)->is_broxton || (devinfo)->is_geminilake)
 
-int gen_get_pci_device_id_override(void);
+static inline bool
+gen_device_info_subslice_available(const struct gen_device_info *devinfo,
+                                   int slice, int subslice)
+{
+   return (devinfo->subslice_masks[slice * devinfo->subslice_slice_stride +
+                                   subslice / 8] & (1U << (subslice % 8))) != 0;
+}
+
 int gen_device_name_to_pci_device_id(const char *name);
-bool gen_get_device_info(int devid, struct gen_device_info *devinfo);
 const char *gen_get_device_name(int devid);
+
+static inline uint64_t
+gen_device_info_timebase_scale(const struct gen_device_info *devinfo,
+                               uint64_t gpu_timestamp)
+{
+   return (1000000000ull * gpu_timestamp) / devinfo->timestamp_frequency;
+}
+
+bool gen_get_device_info_from_fd(int fh, struct gen_device_info *devinfo);
+bool gen_get_device_info_from_pci_id(int pci_id,
+                                     struct gen_device_info *devinfo);
 
 #ifdef __cplusplus
 }

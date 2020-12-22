@@ -53,155 +53,78 @@ import pylibs.oa_guid_registry as oa_registry
 
 # MDAPI configs include writes to some non-config registers,
 # thus the blacklists...
+
+gen8_11_chipset_params = {
+    'a_offset': 16,
+    'b_offset': 192,
+    'c_offset': 224,
+    'oa_report_size': 256,
+    'config_reg_blacklist': {
+        0x2364, # OACTXID
+    },
+}
+
 chipsets = {
-        'HSW': {
-            'a_offset': 12,
-            'b_offset': 192,
-            'c_offset': 224,
-            'registers': {
-                # TODO extend the symbol table for nicer output...
+    'HSW': {
+        'a_offset': 12,
+        'b_offset': 192,
+        'c_offset': 224,
+        'oa_report_size': 256,
+        'registers': {
+            # TODO extend the symbol table for nicer output...
                 0x2710: { 'name': 'OASTARTTRIG1' },
-                0x2714: { 'name': 'OASTARTTRIG1' },
-                0x2718: { 'name': 'OASTARTTRIG1' },
-                0x271c: { 'name': 'OASTARTTRIG1' },
-                0x2720: { 'name': 'OASTARTTRIG1' },
-                0x2724: { 'name': 'OASTARTTRIG6' },
-                0x2728: { 'name': 'OASTARTTRIG7' },
-                0x272c: { 'name': 'OASTARTTRIG8' },
-                0x2740: { 'name': 'OAREPORTTRIG1' },
-                0x2744: { 'name': 'OAREPORTTRIG2' },
-                0x2748: { 'name': 'OAREPORTTRIG3' },
-                0x274c: { 'name': 'OAREPORTTRIG4' },
-                0x2750: { 'name': 'OAREPORTTRIG5' },
-                0x2754: { 'name': 'OAREPORTTRIG6' },
-                0x2758: { 'name': 'OAREPORTTRIG7' },
-                0x275c: { 'name': 'OAREPORTTRIG8' },
-                0x2770: { 'name': 'OACEC0_0' },
-                0x2774: { 'name': 'OACEC0_1' },
-                0x2778: { 'name': 'OACEC1_0' },
-                0x277c: { 'name': 'OACEC1_1' },
-                0x2780: { 'name': 'OACEC2_0' },
-                0x2784: { 'name': 'OACEC2_1' },
-                0x2788: { 'name': 'OACEC3_0' },
-                0x278c: { 'name': 'OACEC3_1' },
-                0x2790: { 'name': 'OACEC4_0' },
-                0x2794: { 'name': 'OACEC4_1' },
-                0x2798: { 'name': 'OACEC5_0' },
-                0x279c: { 'name': 'OACEC5_1' },
-                0x27a0: { 'name': 'OACEC6_0' },
-                0x27a4: { 'name': 'OACEC6_1' },
-                0x27a8: { 'name': 'OACEC7_0' },
-                0x27ac: { 'name': 'OACEC7_1' },
-                },
-            'config_reg_blacklist': {
-                0x2364, # OASTATUS1 register
-                },
-            },
-        'BDW': {
-            'a_offset': 16,
-            'b_offset': 192,
-            'c_offset': 224,
-            'config_reg_blacklist': {
-                0x2364, # OACTXID
-                },
-            },
-        'CHV': {
-            'a_offset': 16,
-            'b_offset': 192,
-            'c_offset': 224,
-            'config_reg_blacklist': {
-                0x2364, # OACTXID
-                },
-            },
-        'SKLGT2': {
-            'a_offset': 16,
-            'b_offset': 192,
-            'c_offset': 224,
-            'config_reg_blacklist': {
-                0x2364, # OACTXID
-                },
-            },
-        'SKLGT3': {
-            'a_offset': 16,
-            'b_offset': 192,
-            'c_offset': 224,
-            'config_reg_blacklist': {
-                0x2364, # OACTXID
-                },
-            },
-        'SKLGT4': {
-            'a_offset': 16,
-            'b_offset': 192,
-            'c_offset': 224,
-            'config_reg_blacklist': {
-                0x2364, # OACTXID
-                },
-            },
-        'BXT': {
-            'a_offset': 16,
-            'b_offset': 192,
-            'c_offset': 224,
-            'config_reg_blacklist': {
-                0x2364, # OACTXID
-                },
-            },
-         'KBLGT2': {
-            'a_offset': 16,
-            'b_offset': 192,
-            'c_offset': 224,
-            'config_reg_blacklist': {
-                0x2364, # OACTXID
-                },
-            },
-         'KBLGT3': {
-            'a_offset': 16,
-            'b_offset': 192,
-            'c_offset': 224,
-            'config_reg_blacklist': {
-                0x2364, # OACTXID
-                },
-            },
-         'GLK': {
-            'a_offset': 16,
-            'b_offset': 192,
-            'c_offset': 224,
-            'config_reg_blacklist': {
-                0x2364, # OACTXID
-                },
-            },
-         'CFLGT2': {
-            'a_offset': 16,
-            'b_offset': 192,
-            'c_offset': 224,
-            'config_reg_blacklist': {
-                0x2364, # OACTXID
-                },
-            },
-         'CFLGT3': {
-            'a_offset': 16,
-            'b_offset': 192,
-            'c_offset': 224,
-            'config_reg_blacklist': {
-                0x2364, # OACTXID
-                },
-            },
-         'CNL': {
-            'a_offset': 16,
-            'b_offset': 192,
-            'c_offset': 224,
-            'config_reg_blacklist': {
-                0x2364, # OACTXID
-                },
-            },
-         'ICL': {
-            'a_offset': 16,
-            'b_offset': 192,
-            'c_offset': 224,
-            'config_reg_blacklist': {
-                0x2364, # OACTXID
-                },
-            },
-        }
+            0x2714: { 'name': 'OASTARTTRIG1' },
+            0x2718: { 'name': 'OASTARTTRIG1' },
+            0x271c: { 'name': 'OASTARTTRIG1' },
+            0x2720: { 'name': 'OASTARTTRIG1' },
+            0x2724: { 'name': 'OASTARTTRIG6' },
+            0x2728: { 'name': 'OASTARTTRIG7' },
+            0x272c: { 'name': 'OASTARTTRIG8' },
+            0x2740: { 'name': 'OAREPORTTRIG1' },
+            0x2744: { 'name': 'OAREPORTTRIG2' },
+            0x2748: { 'name': 'OAREPORTTRIG3' },
+            0x274c: { 'name': 'OAREPORTTRIG4' },
+            0x2750: { 'name': 'OAREPORTTRIG5' },
+            0x2754: { 'name': 'OAREPORTTRIG6' },
+            0x2758: { 'name': 'OAREPORTTRIG7' },
+            0x275c: { 'name': 'OAREPORTTRIG8' },
+            0x2770: { 'name': 'OACEC0_0' },
+            0x2774: { 'name': 'OACEC0_1' },
+            0x2778: { 'name': 'OACEC1_0' },
+            0x277c: { 'name': 'OACEC1_1' },
+            0x2780: { 'name': 'OACEC2_0' },
+            0x2784: { 'name': 'OACEC2_1' },
+            0x2788: { 'name': 'OACEC3_0' },
+            0x278c: { 'name': 'OACEC3_1' },
+            0x2790: { 'name': 'OACEC4_0' },
+            0x2794: { 'name': 'OACEC4_1' },
+            0x2798: { 'name': 'OACEC5_0' },
+            0x279c: { 'name': 'OACEC5_1' },
+            0x27a0: { 'name': 'OACEC6_0' },
+            0x27a4: { 'name': 'OACEC6_1' },
+            0x27a8: { 'name': 'OACEC7_0' },
+            0x27ac: { 'name': 'OACEC7_1' },
+        },
+        'config_reg_blacklist': {
+            0x2364, # OASTATUS1 register
+        },
+    },
+    'BDW': gen8_11_chipset_params,
+    'CHV': gen8_11_chipset_params,
+    'SKLGT2': gen8_11_chipset_params,
+    'SKLGT3': gen8_11_chipset_params,
+    'SKLGT4': gen8_11_chipset_params,
+    'BXT': gen8_11_chipset_params,
+    'KBLGT2': gen8_11_chipset_params,
+    'KBLGT3': gen8_11_chipset_params,
+    'GLK': gen8_11_chipset_params,
+    'CFLGT2': gen8_11_chipset_params,
+    'CFLGT3': gen8_11_chipset_params,
+    'CNL': gen8_11_chipset_params,
+    'ICL': gen8_11_chipset_params,
+    'LKF': gen8_11_chipset_params,
+    'TGL': gen8_11_chipset_params,
+}
 
 register_types = { 'OA', 'NOA', 'FLEX', 'PM' }
 
@@ -210,6 +133,12 @@ default_set_blacklist = { "RenderDX1x", # TODO: rename to something non 'DX'
                                         # usefull
                           "RenderBalance", # XXX: missing register config
                         }
+
+counter_blacklist = {
+    "DramLlcThroughput", # TODO: The max equation of this counter
+                         # requires dram throughtput value. Need to
+                         # investiguate how to get this value.
+}
 
 sys_vars = { "EuCoresTotalCount",
              "EuSlicesTotalCount",
@@ -232,6 +161,18 @@ def underscore(name):
 def print_err(*args):
     sys.stderr.write(' '.join(map(str,args)) + '\n')
 
+read_register_offsets = {
+    0x1f0: 'PERFCNT1',
+    0x1f8: 'PERFCNT2',
+}
+
+def read_value(chipset, offset):
+    if offset in read_register_offsets:
+        return read_register_offsets[offset]
+    print_err("Unknown offset register at offset {0}".format(offset))
+    assert 0
+
+
 def read_token_to_rpn_read(chipset, token, raw_offsets):
     width, offset_str = token.split('@')
 
@@ -247,6 +188,7 @@ def read_token_to_rpn_read(chipset, token, raw_offsets):
         a_offset = chipsets[chipset]['a_offset']
         b_offset = chipsets[chipset]['b_offset']
         c_offset = chipsets[chipset]['c_offset']
+        report_size = chipsets[chipset]['oa_report_size']
 
         if offset < a_offset:
             if offset == 4:
@@ -260,8 +202,10 @@ def read_token_to_rpn_read(chipset, token, raw_offsets):
             return "A " + str((offset - a_offset) / 4) + " READ"
         elif offset < c_offset:
             return "B " + str((offset - b_offset) / 4) + " READ"
-        else:
+        elif offset < report_size:
             return "C " + str((offset - c_offset) / 4) + " READ"
+        else:
+            return "{0} READ_REG".format(read_value(chipset, offset))
     else:
         idx = offset / 8
         if chipset == "HSW":
@@ -274,8 +218,10 @@ def read_token_to_rpn_read(chipset, token, raw_offsets):
                 return "A " + str(idx - 1) + " READ"
             elif idx < 54:
                 return "B " + str(idx - 46) + " READ"
-            else:
+            elif idx < 62:
                 return "C " + str(idx - 54) + " READ"
+            else:
+                return "{0} READ_REG".format(read_value(chipset, offset))
         else:
             # For Gen8+ the array of accumulated counters is
             # assumed to start with a GPU_TIME then GPU_CLOCK,
@@ -289,8 +235,10 @@ def read_token_to_rpn_read(chipset, token, raw_offsets):
                 return "A " + str(idx - 2) + " READ"
             elif idx < 46:
                 return "B " + str(idx - 38) + " READ"
-            else:
+            elif idx < 54:
                 return "C " + str(idx - 46) + " READ"
+            else:
+                return "{0} READ_REG".format(read_value(chipset, offset))
 
     assert 0
 
@@ -475,7 +423,7 @@ def process_mux_configs(mdapi_set):
                 print_err("ERROR: unknown register type=\"" + reg_type + "\": MetricSet=\"" + mdapi_set.get('ShortName'))
                 sys.exit(1)
 
-            if reg_type != 'NOA':
+            if reg_type != 'NOA' and reg_type != 'PM':
                 continue
 
             reg = (address, int(mdapi_reg.get('value'), 16))
@@ -598,6 +546,7 @@ for arg in args.xml:
         if concurrent_group.get('SupportedGT') != None:
             chipset = chipset + concurrent_group.get('SupportedGT')
         if chipset not in chipsets:
+            print_err("WARNING: unsupported chipset {0}, consider updating {1}".format(chipset, __file__))
             continue
 
         if args.whitelist:
@@ -612,7 +561,9 @@ for arg in args.xml:
         if set_symbol_name in set_blacklist:
             continue
 
-        assert mdapi_set.get('SnapshotReportSize') == "256"
+        if mdapi_set.get('SnapshotReportSize') != '256':
+            print_err("WARNING: skipping metric set '{0}', report size {1} invalid".format(set_symbol_name, mdapi_set.get('SnapshotReportSize')))
+            continue
 
         set = et.SubElement(metrics, 'set')
 
@@ -702,6 +653,9 @@ for arg in args.xml:
 
         for mdapi_counter in mdapi_set.findall("Metrics/Metric"):
             symbol_name = mdapi_counter.get('SymbolName')
+
+            if symbol_name in counter_blacklist:
+                continue;
 
             # Have seen at least one MetricSet with a duplicate GpuCoreClocks counter...
             if symbol_name in mdapi_counters:
@@ -835,6 +789,10 @@ for arg in args.xml:
                 mdapi_counter.set('SnapshotReportReadEquation', "dw@0x04 1000000000 UMUL $GpuTimestampFrequency UDIV")
                 mdapi_counter.set('DeltaReportReadEquation', "qw@0x0 1000000000 UMUL $GpuTimestampFrequency UDIV")
 
+            availability = fixup_equation(mdapi_counter.get('AvailabilityEquation'))
+            if availability == "":
+                availability = None
+
             # We prefer to only look at the equations that reference the raw
             # reports since the mapping of offsets back to A,B,C counters is
             # unambiguous, but if necessary we will fallback to mapping
@@ -871,6 +829,16 @@ for arg in args.xml:
                 else:
                     set.remove(counter)
                     continue
+
+            # Some counters are sourced from register values that are
+            # not put into the OA reports. This is why some counters
+            # will have a delta equation but not a raw equation. These
+            # counters are typically only available in query mode. For
+            # this reason we put a particular availability value.
+            if delta_read_eq and not raw_read_eq:
+                assert availability == None
+                availability = "true $QueryMode &&"
+                raw_read_eq = delta_read_eq
 
             # After replacing read tokens with RPN counter READ ops the raw and
             # delta equations are expected to be identical so warn if that's
@@ -951,10 +919,6 @@ for arg in args.xml:
                 continue
 
             counter.set('equation', equation.strip())
-
-            availability = fixup_equation(mdapi_counter.get('AvailabilityEquation'))
-            if availability == "":
-                availability = None
 
             if availability != None:
                 counter.set('availability', availability)
